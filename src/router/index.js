@@ -3,21 +3,54 @@ import VueRouter from 'vue-router'
 
 const HomePage = () =>
 	import(/* webpackChunkName: "about" */ '@/pages/HomePage.vue')
-const AboutPage = () =>
-	import(/* webpackChunkName: "about" */ '@/pages/AboutPage.vue')
-
+const CompanyProfile = () =>
+	import(/* webpackChunkName: "about" */ '@/pages/CompanyProfilePage.vue')
+const Products = () =>
+	import(/* webpackChunkName: "about" */ '@/pages/ProductsPage.vue')
+const Contact = () =>
+	import(/* webpackChunkName: "about" */ '@/pages/ContactPage.vue')
+const NotFound = () =>
+	import(/* webpackChunkName: "about" */ '@/pages/NotFoundPage.vue')
 Vue.use(VueRouter)
 
-const routes = [
+export const routes = [
 	{
+		id: 0,
 		path: '/',
-		name: 'home',
+		name: 'Home',
 		component: HomePage
 	},
 	{
-		path: '/about',
-		name: 'about',
-		component: AboutPage
+		id: 1,
+		path: '/company-profile',
+		name: 'Company Profile',
+		component: CompanyProfile
+	},
+	{
+		id: 2,
+		path: '/products',
+		name: 'Products',
+		component: Products
+	},
+	{
+		id: 3,
+		path: '/',
+		name: 'R & D',
+		component: () => {},
+		active: false
+	},
+	{
+		id: 4,
+		path: '/contact',
+		name: 'Contact',
+		component: Contact
+	},
+	{
+		id: 5,
+		path: '*',
+		name: 'Not found',
+		component: NotFound,
+		inMenu: false
 	}
 ]
 
