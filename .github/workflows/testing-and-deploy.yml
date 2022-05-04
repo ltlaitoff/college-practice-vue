@@ -1,4 +1,4 @@
-name: Project test & build & deploy
+name: Project test, build and deploy
 
 on:
   push:
