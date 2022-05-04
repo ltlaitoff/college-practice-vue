@@ -2,9 +2,9 @@ name: Project test & build & deploy
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -17,18 +17,17 @@ jobs:
           persist-credentials: false
 
       - name: Install
-        run: npm install
+        run: npm ci
 
       - name: Run Test
         run: npm run test
 
       - name: Build
         run: npm run build
-      
+
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@3.7.1
         with:
           BRANCH: gh-pages
           FOLDER: dist
           CLEAN: true
-  
