@@ -6,7 +6,7 @@
 			:to="item.path"
 			exact
 			exact-active-class="active"
-			:disabled="!(item.active === undefined)"
+			:disabled="item.active === false"
 			>{{ item.name }}</b-nav-item
 		>
 	</b-nav>
