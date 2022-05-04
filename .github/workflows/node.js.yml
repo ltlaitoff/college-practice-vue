@@ -2,7 +2,9 @@ name: Project test & build & deploy
 
 on:
   push:
-    branches: [ gh-pages ]
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
   build:
