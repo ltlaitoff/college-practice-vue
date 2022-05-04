@@ -73,9 +73,7 @@ describe('MainNavigation', () => {
 		expect(arrayOfValues.length).toBe(0)
 	})
 
-	it('All items with active = true should be rendered with disabled', async () => {
-		await wrapper.vm.$nextTick()
-
+	it('All items with active = true should be rendered with disabled', () => {
 		const disabledComponents = wrapper.findAllComponents(
 			'[aria-disabled="true"]'
 		)
