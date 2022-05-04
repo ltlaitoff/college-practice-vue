@@ -1,7 +1,7 @@
 <template>
 	<b-nav card-header>
 		<b-nav-item
-			v-for="item in navigationData"
+			v-for="item in navigationItems"
 			:key="item.id"
 			:to="item.path"
 			exact
@@ -20,6 +20,13 @@ export default {
 	data() {
 		return {
 			navigationData: navigationData
+		}
+	},
+	computed: {
+		navigationItems() {
+			return this.navigationData.filter(
+				item => item.inMenu === undefined || Boolean(item.inMenu) === true
+			)
 		}
 	}
 }

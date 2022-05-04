@@ -9,7 +9,8 @@ const Products = () =>
 	import(/* webpackChunkName: "about" */ '@/pages/ProductsPage.vue')
 const Contact = () =>
 	import(/* webpackChunkName: "about" */ '@/pages/ContactPage.vue')
-
+const NotFound = () =>
+	import(/* webpackChunkName: "about" */ '@/pages/NotFoundPage.vue')
 Vue.use(VueRouter)
 
 export const routes = [
@@ -39,10 +40,17 @@ export const routes = [
 		active: false
 	},
 	{
-		id: 3,
+		id: 4,
 		path: '/contact',
 		name: 'Contact',
 		component: Contact
+	},
+	{
+		id: 5,
+		path: '*',
+		name: 'Not found',
+		component: NotFound,
+		inMenu: false
 	}
 ]
 
