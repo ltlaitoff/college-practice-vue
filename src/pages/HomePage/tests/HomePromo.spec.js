@@ -5,7 +5,7 @@ import 'jsdom-global'
 
 import { BButton } from 'bootstrap-vue'
 
-describe('AGFooter', () => {
+describe('HomePromo', () => {
 	let wrapper = null
 
 	beforeEach(() => {

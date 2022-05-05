@@ -42,7 +42,7 @@ const DATA = [
 ]
 jest.mock('../data/subproducts', () => DATA)
 
-describe('MainNavigation', () => {
+describe('SubProducts', () => {
 	let wrapper = null
 
 	beforeEach(() => {
