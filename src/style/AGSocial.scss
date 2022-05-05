@@ -1,0 +1,17 @@
+.social {
+	margin: 0;
+	padding: 0;
+	display: flex;
+	list-style-type: none;
+	column-gap: 15px;
+}
+
+.item {
+	width: 32px;
+	height: 32px;
+}
+
+.link {
+	width: 100%;
+	height: 100%;
+}

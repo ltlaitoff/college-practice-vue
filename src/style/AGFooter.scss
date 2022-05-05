@@ -1,0 +1,27 @@
+.footer {
+	width: 100%;
+}
+
+.top {
+	background: rgba(#2d3f45, 0.75);
+}
+
+.container {
+	min-height: 75px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.bottom {
+	max-height: 50px;
+	padding: 18px 0 13px 0;
+	font-family: 'Roboto';
+
+	font-weight: 400;
+	font-size: 14px;
+	line-height: 142.7%;
+
+	color: #b9b9b9;
+	background: var(--text-color);
+}

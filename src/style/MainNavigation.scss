@@ -1,0 +1,47 @@
+.nav-link {
+	font-family: 'Heebo', sans-serif;
+
+	font-weight: 500;
+	font-size: 18px;
+	line-height: 26px;
+	transition-duration: 200ms;
+}
+
+.dark {
+	.nav-link {
+		color: var(--text-color);
+		&:hover {
+			color: var(--info);
+		}
+	}
+	.active {
+		color: var(--buttons-color);
+		&:hover {
+			color: var(--warning);
+		}
+	}
+}
+
+.light {
+	.nav-link {
+		color: #fff;
+
+		font-family: 'Roboto';
+
+		font-weight: 400;
+		font-size: 16px;
+		line-height: 142.7%;
+
+		text-transform: uppercase;
+
+		&:hover {
+			color: var(--info);
+		}
+	}
+	.active {
+		color: var(--buttons-color);
+		&:hover {
+			color: var(--warning);
+		}
+	}
+}

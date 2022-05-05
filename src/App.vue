@@ -2,14 +2,17 @@
 	<div id="app">
 		<AGHeader />
 		<router-view />
+		<AGFooter />
 	</div>
 </template>
 
 <script>
 import AGHeader from '@/components/AGHeader'
+import AGFooter from '@/components/AGFooter'
 export default {
 	components: {
-		AGHeader
+		AGHeader,
+		AGFooter
 	}
 }
 </script>
