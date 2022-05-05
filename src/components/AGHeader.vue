@@ -2,7 +2,7 @@
 	<b-container>
 		<header class="header">
 			<b-link to="/"
-				><b-img src="@/assets/logo.png" fluid class="logo"
+				><b-img src="@/assets/images/logo.png" fluid class="logo"
 			/></b-link>
 			<div class="wrapper">
 				<div class="search-wrapper">
