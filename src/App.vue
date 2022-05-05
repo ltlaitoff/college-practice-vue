@@ -1,15 +1,15 @@
 <template>
 	<div id="app">
-		<MainNavigation />
+		<AGHeader />
 		<router-view />
 	</div>
 </template>
 
 <script>
-import MainNavigation from '@/components/MainNavigation.vue'
+import AGHeader from '@/components/AGHeader'
 export default {
 	components: {
-		MainNavigation
+		AGHeader
 	}
 }
 </script>
