@@ -1,0 +1,10 @@
+.about {
+	margin: 70px 0 100px 0;
+	background-image: url('../assets/images/HomeAbout.svg');
+	background-position: center 0;
+	background-repeat: no-repeat;
+
+	display: flex;
+	flex-direction: column;
+	row-gap: 100px;
+}
