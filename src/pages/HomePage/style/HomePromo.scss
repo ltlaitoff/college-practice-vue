@@ -1,0 +1,39 @@
+.promo {
+	margin-top: -175px;
+	height: 850px;
+	background-image: url('../assets/HomePromo.jpg');
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.content {
+	margin-top: 50px;
+}
+
+.button {
+	margin-top: 60px;
+
+	width: 160px;
+	height: 55px;
+
+	background: var(--buttons-color);
+	border: none;
+	border-radius: 0;
+
+	font-family: 'Roboto';
+
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 142.7%;
+
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+
+	&:hover {
+		background: var(--green);
+	}
+}

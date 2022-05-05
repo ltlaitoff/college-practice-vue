@@ -39,9 +39,9 @@
 		}
 	}
 	.active {
-		color: var(--buttons-color);
+		color: var(--yellow);
 		&:hover {
-			color: var(--warning);
+			color: var(--pink);
 		}
 	}
 }

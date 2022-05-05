@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 const HomePage = () =>
-	import(/* webpackChunkName: "about" */ '@/pages/HomePage.vue')
+	import(/* webpackChunkName: "about" */ '@/pages/HomePage/HomePage.vue')
 const CompanyProfile = () =>
 	import(/* webpackChunkName: "about" */ '@/pages/CompanyProfilePage.vue')
 const Products = () =>
