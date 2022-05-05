@@ -4,7 +4,7 @@
 			<b-col :class="reversed ? 'order-2' : 'order-1'" data-testid="1">
 				<div class="content">
 					<h3 class="title">{{ title }}</h3>
-					<div class="divider"></div>
+					<AGDivider class="divider" />
 					<div class="text">{{ text }}</div>
 				</div>
 			</b-col>
@@ -16,6 +16,8 @@
 </template>
 
 <script>
+import AGDivider from '@/components/AGDivider'
+
 export default {
 	name: 'AboutItem',
 	props: {
@@ -39,6 +41,9 @@ export default {
 			require: true,
 			default: ''
 		}
+	},
+	components: {
+		AGDivider
 	}
 }
 </script>

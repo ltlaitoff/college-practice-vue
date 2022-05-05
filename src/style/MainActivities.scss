@@ -21,6 +21,8 @@
 }
 
 .divider {
+	display: flex;
+	justify-content: center;
 	margin-top: 25px;
 	height: 6px;
 }

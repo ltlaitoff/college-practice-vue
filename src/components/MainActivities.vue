@@ -2,7 +2,7 @@
 	<div class="main">
 		<b-container class="container">
 			<h2 class="title">Agridera's main activities</h2>
-			<div class="divider"></div>
+			<AGDivider class="divider" />
 			<b-row class="list">
 				<b-col v-for="item in data" :key="item.id" class="item">
 					<b-img :src="item.icon" class="img" />
@@ -16,10 +16,14 @@
 </template>
 
 <script>
+import AGDivider from '@/components/AGDivider'
 import mainActivitiesData from '@/data/mainActivities'
 
 export default {
 	name: 'MainActivities',
+	components: {
+		AGDivider
+	},
 	data() {
 		return {
 			data: mainActivitiesData
