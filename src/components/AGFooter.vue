@@ -2,7 +2,7 @@
 	<footer class="footer">
 		<div class="top">
 			<b-container class="container">
-				<MainNavigation />
+				<MainNavigation type="light" />
 				<AGSocial />
 			</b-container>
 		</div>

@@ -59,12 +59,6 @@ describe('AGFooter', () => {
 		expect(footer.find('.bottom').exists()).toBe(true)
 	})
 
-	/*
-	Top should have b-container inside
-	b-container should be have MainNavigation 
-	b-container should be have Social 
-	Bottom shoul have text ...
-	*/
 	it('Top should have b-container inside', () => {
 		const top = wrapper.find('.top')
 
@@ -89,20 +83,4 @@ describe('AGFooter', () => {
 
 		expect(bottom.text()).toBe(text)
 	})
-
-	// it('Button should be in header and should be have a icon as children', () => {
-	// 	const header = wrapper.findComponent('header')
-	// 	const button = header.findComponent('button.button')
-	// 	const icon = button.findComponent('.b-icon')
-
-	// 	expect(button.exists()).toBe(true)
-	// 	expect(icon.exists()).toBe(true)
-	// })
-
-	// it('MainNavigation should be in header', () => {
-	// 	const header = wrapper.findComponent('header')
-	// 	const mainNavigation = header.findComponent(MainNavigation)
-
-	// 	expect(mainNavigation.exists()).toBe(true)
-	// })
 })
