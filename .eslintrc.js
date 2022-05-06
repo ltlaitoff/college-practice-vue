@@ -1,7 +1,9 @@
 module.exports = {
 	root: true,
 	env: {
-		node: true
+		node: true,
+		jest: true,
+		'jest/globals': true
 	},
 	extends: ['plugin:vue/essential', 'eslint:recommended', 'prettier'],
 	parserOptions: {
@@ -30,11 +32,7 @@ module.exports = {
 	},
 	overrides: [
 		{
-			files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/**/*.spec.{j,t}s?(x)'],
-			env: {
-				jest: true,
-				'jest/globals': true
-			}
+			files: ['**/__tests__/*.{j,t}s?(x)', '**/tests/**/*.spec.{j,t}s?(x)']
 		}
 	]
 }
