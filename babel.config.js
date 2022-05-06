@@ -1,5 +1,5 @@
 module.exports = {
-	presets: [['@babel/preset-env', { useBuiltIns: false }]],
+	presets: [['@babel/preset-env', { modules: 'commonjs', useBuiltIns: false }]],
 	env: {
 		test: {
 			presets: [['env', { targets: { node: 'current' } }]]
