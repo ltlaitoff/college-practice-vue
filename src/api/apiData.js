@@ -168,6 +168,7 @@ export const products = [
 		id: 0,
 		categoryShortName: 'Tomato',
 		categoryFullName: 'Agridera Fresh Market Tomato Hybrids',
+		categoryMinifyName: 'tomato',
 		categoryImage: 'tomato',
 		disabled: false,
 		products: tomatoProducts
@@ -175,7 +176,8 @@ export const products = [
 	{
 		id: 1,
 		categoryShortName: 'Ornamental Sunflowers',
-		categoryFullName: '',
+		categoryFullName: 'Ornamental Sunflowers',
+		categoryMinifyName: 'ornamentalSunflowers',
 		categoryImage: 'ornamentalSunflowers',
 		disabled: false,
 		products: ornamentalSunflowersProducts
@@ -183,7 +185,8 @@ export const products = [
 	{
 		id: 2,
 		categoryShortName: 'Wheat',
-		categoryFullName: '',
+		categoryFullName: 'R&D Of Wheat and Barley',
+		categoryMinifyName: 'wheat',
 		categoryImage: 'wheat',
 		disabled: false,
 		products: wheatProducts
@@ -192,6 +195,7 @@ export const products = [
 		id: 3,
 		categoryShortName: 'Confection Sunflowers',
 		categoryFullName: '',
+		categoryMinifyName: 'confectionSunflowers',
 		categoryImage: 'confectionSunflowers',
 		disabled: true,
 		products: []
@@ -200,6 +204,7 @@ export const products = [
 		id: 4,
 		categoryShortName: 'Clover',
 		categoryFullName: '',
+		categoryMinifyName: 'clover',
 		categoryImage: 'clover',
 		disabled: true,
 		products: []
@@ -208,6 +213,7 @@ export const products = [
 		id: 5,
 		categoryShortName: 'Eggplant O/P',
 		categoryFullName: '',
+		categoryMinifyName: 'eggplant',
 		categoryImage: 'eggplant',
 		disabled: true,
 		products: []
@@ -216,6 +222,7 @@ export const products = [
 		id: 6,
 		categoryShortName: 'Confection Watermelon',
 		categoryFullName: '',
+		categoryMinifyName: 'confectionWatermelon',
 		categoryImage: 'confectionWatermelon',
 		disabled: true,
 		products: []

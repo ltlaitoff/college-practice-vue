@@ -13,6 +13,7 @@ const DATA = [
 		id: 0,
 		categoryShortName: 'test1',
 		categoryFullName: 'test1 long',
+		categoryMinifyName: 'test1',
 		categoryImage: 'test1',
 		disabled: false,
 		products: [
@@ -40,6 +41,7 @@ const DATA = [
 		id: 1,
 		categoryShortName: 'test2',
 		categoryFullName: 'test2 lonk',
+		categoryMinifyName: 'test2',
 		categoryImage: 'test2',
 		disabled: false,
 		products: [
@@ -81,6 +83,7 @@ describe('api', () => {
 			id: 1,
 			categoryShortName: 'test2',
 			categoryFullName: 'test2 lonk',
+			categoryMinifyName: 'test2',
 			categoryImage: 'test2',
 			disabled: false,
 			products: [
