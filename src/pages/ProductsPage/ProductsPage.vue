@@ -1,60 +1,61 @@
 <template>
 	<div class="full">
-		<PageBG
-			:img="require('@/assets/images/products-bg.jpg')"
-			alt="productsBg"
-		/>
+		<MainTitle :visibility="false" />
+		<PageBG :img="getBGImage" imgAlt="productsBg" />
 		<b-container class="container">
-			<div class="products" v-if="products">
-				<MainTitle :visibility="false" />
+			<b-card-group v-if="products" columns class="group">
+				<b-card
+					v-for="item in products"
+					:key="item.id"
+					no-body
+					class="card"
+					:data-test-id="item.id"
+				>
+					<b-link
+						:to="`products/${item.categoryMinifyName}`"
+						:disabled="item.disabled"
+					>
+						<b-card-img
+							:src="item.categoryImage"
+							:alt="item.categoryMinifyName"
+							top
+						></b-card-img>
+					</b-link>
 
-				<b-card-group columns class="group">
-					<b-card v-for="item in products" :key="item.id" no-body class="card">
+					<b-card-body class="body">
 						<b-link
 							:to="`products/${item.categoryMinifyName}`"
 							:disabled="item.disabled"
 						>
-							<b-card-img
-								:src="loadImage(item.categoryImage)"
-								:alt="item.categoryImage"
-								top
-							></b-card-img>
+							<b-card-title class="title">{{
+								item.categoryShortName
+							}}</b-card-title>
 						</b-link>
 
-						<b-card-body class="body">
+						<hr class="divider" />
+
+						<b-list-group flush class="list">
 							<b-link
-								:to="`products/${item.categoryMinifyName}`"
-								:disabled="item.disabled"
+								v-for="product in item.products"
+								:key="product.id"
+								:to="`products/${item.categoryMinifyName}/${product.id}`"
+								:data-test-id="product.id"
 							>
-								<b-card-title class="title">{{
-									item.categoryShortName
-								}}</b-card-title>
+								<b-list-group-item class="list-item">{{
+									product.name
+								}}</b-list-group-item>
 							</b-link>
-
-							<hr class="divider" />
-
-							<b-list-group flush class="list">
-								<b-link
-									v-for="product in item.products"
-									:key="product.id"
-									:to="`products/${item.categoryMinifyName}/${product.id}`"
-								>
-									<b-list-group-item class="list-item">{{
-										product.name
-									}}</b-list-group-item>
-								</b-link>
-							</b-list-group>
-						</b-card-body>
-					</b-card>
-				</b-card-group>
-			</div>
+						</b-list-group>
+					</b-card-body>
+				</b-card>
+			</b-card-group>
 		</b-container>
 	</div>
 </template>
 
 <script>
 import { getProducts } from '@/api'
-
+import getImages from './helpers/getImages'
 import MainTitle from '@/components/MainTitle.vue'
 import PageBG from '@/components/PageBG.vue'
 
@@ -70,11 +71,11 @@ export default {
 		}
 	},
 	created() {
-		getProducts().then(data => (this.products = data))
+		getProducts().then(data => (this.products = getImages(data)))
 	},
-	methods: {
-		loadImage(image) {
-			return require(`@/assets/images/${image}CategoryImage.jpg`)
+	computed: {
+		getBGImage() {
+			return require('@/assets/images/products-bg.jpg')
 		}
 	}
 }
