@@ -1,5 +1,5 @@
 <template>
-	<nav>
+	<nav class="navigation">
 		<b-nav card-header>
 			<b-nav-item
 				v-for="item in navigationItems"

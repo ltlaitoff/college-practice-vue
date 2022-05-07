@@ -59,8 +59,12 @@ describe('MainNavigation', () => {
 		wrapper.destroy()
 	})
 
+	it('<nav> should be in component ', () => {
+		expect(wrapper.find('nav').exists()).toBe(true)
+	})
+
 	it('Navigation items count should be 5', () => {
-		expect(wrapper.findAllComponents(BNavItem).length).toBe(5)
+		expect(wrapper.findAllComponents(BNavItem)).toHaveLength(5)
 	})
 
 	it('All items without inMenu = false should be rendered', () => {
@@ -70,13 +74,13 @@ describe('MainNavigation', () => {
 			arrayOfValues = arrayOfValues.filter(value => value !== item.text())
 		})
 
-		expect(arrayOfValues.length).toBe(0)
+		expect(arrayOfValues).toHaveLength(0)
 	})
 
 	it('All items with active = true should be rendered with disabled', () => {
 		const disabledComponents = wrapper.findAllComponents(
 			'[aria-disabled="true"]'
 		)
-		expect(disabledComponents.length).toBe(1)
+		expect(disabledComponents).toHaveLength(1)
 	})
 })
