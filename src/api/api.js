@@ -8,6 +8,11 @@ export const getCategoryById = async id => {
 	return products.filter(item => item.id === id)[0]
 }
 
+// FIXME: Create tests for getCategoryByMinifyName
+export const getCategoryByMinifyName = async name => {
+	return products.filter(item => item.categoryMinifyName === name)[0]
+}
+
 export const getCategoryProductsById = async id => {
 	return products.filter(item => item.id === id)[0].products
 }

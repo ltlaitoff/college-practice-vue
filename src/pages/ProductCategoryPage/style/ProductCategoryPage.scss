@@ -1,0 +1,65 @@
+.data {
+	margin-top: 40px;
+	text-align: left;
+}
+
+.title {
+	margin-top: 50px;
+	font-weight: 700;
+	font-size: 44px;
+	line-height: 142.7%;
+
+	color: var(--text-color);
+	text-align: left;
+}
+
+.divider {
+	margin-top: 40px;
+}
+
+.group {
+	margin: 40px 0 50px 0;
+
+	display: flex;
+	flex-wrap: wrap;
+	gap: 30px;
+}
+
+.link {
+	color: inherit;
+}
+
+.card {
+	margin: 0;
+
+	max-width: 350px;
+
+	border: none;
+	border-radius: 0;
+
+	margin-bottom: 10px;
+
+	text-align: center;
+
+	color: var(--buttons-color);
+}
+
+.image {
+	border-radius: 0;
+}
+
+.body {
+	padding: 9px 18px;
+}
+
+.card-title {
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 142.7%;
+}
+
+.text {
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 142.7%;
+}
