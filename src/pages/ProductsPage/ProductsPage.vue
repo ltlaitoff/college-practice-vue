@@ -55,7 +55,7 @@
 
 <script>
 import { getProducts } from '@/api'
-import getImages from './helpers/getImages'
+import { getProductsImages } from '@/helpers/getImages'
 import MainTitle from '@/components/MainTitle.vue'
 import PageBG from '@/components/PageBG.vue'
 
@@ -71,7 +71,7 @@ export default {
 		}
 	},
 	created() {
-		getProducts().then(data => (this.products = getImages(data)))
+		getProducts().then(data => (this.products = getProductsImages(data)))
 	},
 	computed: {
 		getBGImage() {
