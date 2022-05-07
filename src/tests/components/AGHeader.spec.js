@@ -1,6 +1,8 @@
-import { shallowMount } from '@vue/test-utils'
+import VueRouter from 'vue-router'
+import { shallowMount, createLocalVue } from '@vue/test-utils'
 import AGHeader from '@/components/AGHeader'
 import MainNavigation from '@/components/MainNavigation'
+import 'jsdom-global'
 
 import {
 	BButton,
@@ -11,13 +13,19 @@ import {
 	BLink
 } from 'bootstrap-vue'
 
-import 'jsdom-global'
+const localVue = createLocalVue()
+
+localVue.use(VueRouter)
+
+const router = new VueRouter()
 
 describe('AGHeader', () => {
 	let wrapper = null
 
 	beforeEach(() => {
 		wrapper = shallowMount(AGHeader, {
+			localVue,
+			router,
 			stubs: {
 				'b-container': BContainer,
 				'b-link': BLink,
