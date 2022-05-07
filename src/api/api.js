@@ -12,6 +12,12 @@ export const getCategoryProductsById = async id => {
 	return products.filter(item => item.id === id)[0].products
 }
 
+export const getCategoryProductsByCategoryMinifyName = async name => {
+	const data = products.filter(item => item.categoryMinifyName === name)[0]
+
+	return data ? data.products : null
+}
+
 export const getCategoryProductTypesById = async id => {
 	const categoryProducts = await getCategoryProductsById(id)
 
