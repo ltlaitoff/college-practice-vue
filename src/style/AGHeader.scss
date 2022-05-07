@@ -1,7 +1,15 @@
 .header {
-	margin-top: 20px;
+	padding: 20px 0;
 	display: flex;
 	justify-content: space-between;
+}
+
+.full {
+	background-color: white;
+}
+
+.wrapper-promo {
+	padding-bottom: 16px;
 }
 
 .wrapper {
@@ -9,7 +17,14 @@
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-end;
-	padding-bottom: 16px;
+}
+
+.logo-promo {
+	height: 113px;
+}
+
+.logo {
+	height: 83px;
 }
 
 .search {
