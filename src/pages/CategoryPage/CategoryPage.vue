@@ -37,7 +37,7 @@ import { getCategoryProductsImages } from '@/helpers/getImages'
 import pagesData from './data/pagesInfo'
 
 export default {
-	name: 'ProductCategoryPage',
+	name: 'CategoryPage',
 	components: {
 		MainTitle,
 		PageBG,
@@ -69,4 +69,4 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped src="./style/ProductCategoryPage.scss"/>
+<style lang="scss" scoped src="./style/CategoryPage.scss"/>

@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import 'jsdom-global'
-import ProductCategoryPage from '../ProductCategoryPage'
+import ProductCategoryPage from '../CategoryPage'
 
 import MainTitle from '@/components/MainTitle'
 import PageBG from '@/components/PageBG'

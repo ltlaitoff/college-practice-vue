@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 const HomePage = () => import('@/pages/HomePage')
 const CompanyProfile = () => import('@/pages/CompanyProfilePage.vue')
 const Products = () => import('@/pages/ProductsPage')
-const ProductCategory = () => import('@/pages/ProductCategoryPage')
+const Category = () => import('@/pages/CategoryPage')
 const Contact = () => import('@/pages/ContactPage.vue')
 const NotFound = () => import('@/pages/NotFoundPage.vue')
 
@@ -33,8 +33,8 @@ export const routes = [
 	{
 		id: 3,
 		path: '/products/:category',
-		name: 'ProductCategoryPage',
-		component: ProductCategory,
+		name: 'CategoryPage',
+		component: Category,
 		inMenu: false
 	},
 	{
