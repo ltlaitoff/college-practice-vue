@@ -5,6 +5,7 @@ const HomePage = () => import('@/pages/HomePage')
 const CompanyProfile = () => import('@/pages/CompanyProfilePage.vue')
 const Products = () => import('@/pages/ProductsPage')
 const Category = () => import('@/pages/CategoryPage')
+const Product = () => import('@/pages/ProductPage')
 const Contact = () => import('@/pages/ContactPage.vue')
 const NotFound = () => import('@/pages/NotFoundPage.vue')
 
@@ -29,7 +30,6 @@ export const routes = [
 		name: 'Products',
 		component: Products
 	},
-
 	{
 		id: 3,
 		path: '/products/:category',
@@ -39,19 +39,26 @@ export const routes = [
 	},
 	{
 		id: 4,
-		path: '/',
-		name: 'R & D',
-		component: () => {},
-		active: false
+		path: '/products/:category/:id',
+		name: 'ProductPage',
+		component: Product,
+		inMenu: false
 	},
 	{
 		id: 5,
+		path: '/',
+		name: 'R & D',
+		redirect: '/',
+		active: false
+	},
+	{
+		id: 6,
 		path: '/contact',
 		name: 'Contact',
 		component: Contact
 	},
 	{
-		id: 6,
+		id: 7,
 		path: '*',
 		name: 'Not found',
 		component: NotFound,
