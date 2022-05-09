@@ -14,7 +14,7 @@
 					:data-testid="item.id"
 					no-body
 				>
-					<b-link :to="`products/${category}/${item.id}`" class="link">
+					<b-link :to="`/products/${category}/${item.id}`" class="link">
 						<b-card-img :src="item.image" :alt="item.name" top class="image" />
 
 						<b-card-body class="body">
