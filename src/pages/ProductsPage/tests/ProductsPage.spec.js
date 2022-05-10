@@ -64,7 +64,7 @@ jest.mock('@/api', () => {
 	}
 })
 
-describe('AGFooter', () => {
+describe('ProductsPage', () => {
 	let wrapper = null
 
 	beforeEach(() => {
