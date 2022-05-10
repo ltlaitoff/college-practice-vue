@@ -1,10 +1,3 @@
-/*
-	Добавить в категорию "крассную иконку"
-	Добавить в категорию задний фон товара
-	Добавить в товар "крассный текст"
-	Добавить информацию о товаре
-*/
-
 const tomatoProducts = [
 	{
 		id: 0,
@@ -16,7 +9,7 @@ const tomatoProducts = [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
-				text: 'Resistance\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
+				text: '**Resistance**\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
 			},
 			{
 				id: 1,
@@ -77,7 +70,7 @@ const tomatoProducts = [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
-				text: 'Resistance\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
+				text: '**Resistance**\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
 			},
 			{
 				id: 1,
@@ -119,7 +112,7 @@ const tomatoProducts = [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
-				text: 'Resistance\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
+				text: '**Resistance**\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
 			},
 			{
 				id: 1,
@@ -161,7 +154,7 @@ const tomatoProducts = [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
-				text: 'Resistance\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
+				text: '**Resistance**\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
 			},
 			{
 				id: 1,
@@ -203,7 +196,7 @@ const tomatoProducts = [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
-				text: 'Resistance\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
+				text: '**Resistance**\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
 			},
 			{
 				id: 1,
@@ -245,7 +238,7 @@ const tomatoProducts = [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
-				text: 'Resistance\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
+				text: '**Resistance**\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
 			},
 			{
 				id: 1,
@@ -287,7 +280,7 @@ const tomatoProducts = [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
-				text: 'Resistance\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
+				text: '**Resistance**\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
 			},
 			{
 				id: 1,
@@ -828,7 +821,7 @@ export const products = [
 		categoryImage: 'tomato',
 		disabled: false,
 		products: tomatoProducts,
-		attentionIcon: 'tomato-attention-icon',
+		attentionIcon: 'tomato-attention-icon.svg',
 		productBG: 'tomato-product-bg.svg'
 	},
 	{

@@ -147,7 +147,7 @@ describe('AGDivider', () => {
 			const id = item.attributes()['data-testid']
 
 			expect(item.findComponent(BLink).attributes().href).toBe(
-				`products/testminify/${id}`
+				`/products/testminify/${id}`
 			)
 		})
 	})

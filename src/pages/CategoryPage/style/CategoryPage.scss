@@ -45,6 +45,10 @@
 }
 
 .image {
+	max-height: 250px;
+	object-fit: cover;
+	object-position: 100% 0;
+
 	border-radius: 0;
 }
 
