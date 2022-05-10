@@ -1,13 +1,21 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 
-const HomePage = () => import('@/pages/HomePage')
-const CompanyProfile = () => import('@/pages/CompanyProfilePage.vue')
-const Products = () => import('@/pages/ProductsPage')
-const Category = () => import('@/pages/CategoryPage')
-const Product = () => import('@/pages/ProductPage')
-const Contact = () => import('@/pages/ContactPage.vue')
-const NotFound = () => import('@/pages/NotFoundPage.vue')
+const HomePage = () => import(/* webpackChunkName: "home" */ '@/pages/HomePage')
+const CompanyProfile = () =>
+	import(
+		/* webpackChunkName: "company-profile" */ '@/pages/CompanyProfilePage.vue'
+	)
+const Products = () =>
+	import(/* webpackChunkName: "products" */ '@/pages/ProductsPage')
+const Category = () =>
+	import(/* webpackChunkName: "category" */ '@/pages/CategoryPage')
+const Product = () =>
+	import(/* webpackChunkName: "product" */ '@/pages/ProductPage')
+const Contact = () =>
+	import(/* webpackChunkName: "contacnt" */ '@/pages/ContactPage')
+const NotFound = () =>
+	import(/* webpackChunkName: "not-found" */ '@/pages/NotFoundPage.vue')
 
 Vue.use(VueRouter)
 
