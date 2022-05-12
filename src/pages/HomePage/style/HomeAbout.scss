@@ -1,10 +1,88 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
 .about {
 	margin: 70px 0 100px 0;
-	background-image: url('../assets/images/HomeAbout.svg');
+	background-image: url('../assets/HomeAbout.svg');
 	background-position: center 0;
 	background-repeat: no-repeat;
 
 	display: flex;
 	flex-direction: column;
 	row-gap: 100px;
+}
+
+.title {
+	font-weight: 700;
+	font-size: 64px;
+	line-height: 142.7%;
+
+	color: var(--text-color);
+}
+
+.divider {
+	height: 7px;
+	margin-top: 5px;
+}
+
+.text {
+	margin-top: 30px;
+	font-weight: 400;
+	font-size: 20px;
+	line-height: 162.7%;
+	color: var(--text-color);
+}
+
+.card {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	text-align: left;
+	border: none;
+	background-color: transparent;
+
+	&-body {
+		max-width: 495px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+
+	&-img-left,
+	&-img-right {
+		filter: drop-shadow(0px 20px 40px rgba(0, 0, 0, 0.25));
+	}
+}
+
+.group {
+	display: flex;
+	flex-direction: column;
+	row-gap: 100px;
+}
+
+@include media-breakpoint-down(md) {
+	.card {
+		flex-wrap: wrap;
+		justify-content: center;
+
+		&-body {
+			margin-top: 20px;
+		}
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	.card {
+		&-body {
+			align-items: center;
+		}
+		&-img-left,
+		&-img-right {
+			max-width: 75%;
+		}
+	}
+
+	.title {
+		font-size: 54px;
+		line-height: 132.7%;
+	}
 }
