@@ -821,6 +821,7 @@ export const categories = [
 			minify: 'tomato'
 		},
 		image: 'image.jpg',
+		icon: 'icon.svg',
 		bg: 'bg.jpg',
 		productBG: 'product-bg.svg',
 		attentionIcon: 'attention-icon.svg',
@@ -834,6 +835,7 @@ export const categories = [
 			minify: 'ornamentalSunflowers'
 		},
 		image: 'image.jpg',
+		icon: 'icon.svg',
 		bg: 'bg.jpg',
 		productBG: 'product-bg.svg',
 		attentionIcon: 'attention-icon.svg',
@@ -847,6 +849,7 @@ export const categories = [
 			minify: 'wheat'
 		},
 		image: 'image.jpg',
+		icon: 'icon.svg',
 		bg: 'bg.jpg',
 		productBG: 'product-bg.svg',
 		products: wheatProducts
@@ -859,6 +862,7 @@ export const categories = [
 			minify: 'confectionSunflowers'
 		},
 		image: 'image.jpg',
+		icon: 'icon.svg',
 		disabled: true,
 		products: []
 	},
@@ -870,6 +874,7 @@ export const categories = [
 			minify: 'clover'
 		},
 		image: 'image.jpg',
+		icon: 'icon.svg',
 		disabled: true,
 		products: []
 	},
@@ -881,6 +886,7 @@ export const categories = [
 			minify: 'eggplant'
 		},
 		image: 'image.jpg',
+		icon: 'icon.svg',
 		disabled: true,
 		products: []
 	},
@@ -892,6 +898,7 @@ export const categories = [
 			minify: 'confectionWatermelon'
 		},
 		image: 'image.jpg',
+		icon: 'icon.svg',
 		disabled: true,
 		products: []
 	}

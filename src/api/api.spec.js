@@ -26,6 +26,7 @@ const DATA = [
 			minify: 'category1 minify'
 		},
 		image: 'image.jpg',
+		icon: 'icon.svg',
 		bg: 'bg.jpg',
 		productBG: 'product-bg.svg',
 		attentionIcon: 'attention-icon.svg',
@@ -113,6 +114,7 @@ const category0 = {
 		minify: 'category1 minify'
 	},
 	image: 'image.jpg',
+	icon: 'icon.svg',
 	bg: 'bg.jpg',
 	productBG: 'product-bg.svg',
 	attentionIcon: 'attention-icon.svg',
