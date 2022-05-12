@@ -1,4 +1,4 @@
-const loadImage = (category, type) => {
+const loadCategoryImage = (category, type) => {
 	const field = category[type]
 
 	if (!field) return null
@@ -10,11 +10,20 @@ export const loadCategoriesImages = categories => {
 	return categories.map(category => {
 		return {
 			...category,
-			image: loadImage(category, 'image'),
-			icon: loadImage(category, 'icon'),
-			bg: loadImage(category, 'bg'),
-			productBG: loadImage(category, 'productBG'),
-			attentionIcon: loadImage(category, 'attentionIcon')
+			image: loadCategoryImage(category, 'image'),
+			icon: loadCategoryImage(category, 'icon'),
+			bg: loadCategoryImage(category, 'bg'),
+			productBG: loadCategoryImage(category, 'productBG'),
+			attentionIcon: loadCategoryImage(category, 'attentionIcon')
+		}
+	})
+}
+
+export const loadMainActivitiesImages = data => {
+	return data.map(item => {
+		return {
+			...item,
+			icon: require('@/assets/images/seeds/' + item.icon)
 		}
 	})
 }

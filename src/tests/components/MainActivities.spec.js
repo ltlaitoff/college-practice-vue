@@ -25,6 +25,12 @@ jest.mock('@/data/mainActivities', () => [
 	}
 ])
 
+jest.mock('@/helpers/loadImages', () => {
+	return {
+		loadMainActivitiesImages: value => value
+	}
+})
+
 describe('MainActivities', () => {
 	let wrapper = null
 
@@ -35,6 +41,9 @@ describe('MainActivities', () => {
 				'b-row': BRow,
 				'b-col': BCol,
 				'b-img': BImg
+			},
+			slots: {
+				default: 'test slot data'
 			}
 		})
 	})
@@ -43,11 +52,8 @@ describe('MainActivities', () => {
 		wrapper.destroy()
 	})
 
-	it('MainActivities should have title', () => {
-		expect(wrapper.findComponent('h2.title').text()).toBe(
-			/* eslint-disable-next-line  */
-			"Agridera's main activities"
-		)
+	it('test slot data should be in the component', () => {
+		expect(wrapper.text().includes('test slot data')).toBe(true)
 	})
 
 	it('MainActivities items count should be 3', () => {
