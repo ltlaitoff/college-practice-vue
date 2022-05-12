@@ -5,7 +5,7 @@ const tomatoProducts = [
 		type: 'Tomato Determinate Red Round',
 		image: 'tomato-1000',
 		attentionText: 'Very high yield and excellent fruits quality!',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
@@ -47,7 +47,7 @@ const tomatoProducts = [
 		type: 'Tomato Determinate Red Standard',
 		image: 'tomato-1001',
 		attentionText: '',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: '',
@@ -66,7 +66,7 @@ const tomatoProducts = [
 		type: 'Tomato Determinate Red Standard-round',
 		image: 'tomato-1002',
 		attentionText: 'Very high yield and excellent fruits quality!',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
@@ -108,7 +108,7 @@ const tomatoProducts = [
 		type: 'Tomato Determinate Red',
 		image: 'tomato-1003',
 		attentionText: 'Very high yield and excellent fruits quality!',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
@@ -150,7 +150,7 @@ const tomatoProducts = [
 		type: 'Tomato Determinate Red BEEF Round',
 		image: 'tomato-1004',
 		attentionText: 'Very high yield and excellent fruits quality!',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
@@ -192,7 +192,7 @@ const tomatoProducts = [
 		type: 'Tomato Determinate Red Standard-round-2',
 		image: 'tomato-1005',
 		attentionText: 'Very high yield and excellent fruits quality!',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
@@ -234,7 +234,7 @@ const tomatoProducts = [
 		type: 'Tomato Determinate Red Elongated',
 		image: 'tomato-1006',
 		attentionText: 'Very high yield and excellent fruits quality!',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
@@ -276,7 +276,7 @@ const tomatoProducts = [
 		type: 'Tomato Determinate Red Alon',
 		image: 'tomato-1007',
 		attentionText: 'Very high yield and excellent fruits quality!',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'CHARACTERISTICS',
@@ -321,7 +321,7 @@ const ornamentalSunflowersProducts = [
 		type: 'Classic',
 		image: 'ornamental-859',
 		attentionText: 'Grows year-round.',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Plant',
@@ -355,7 +355,7 @@ const ornamentalSunflowersProducts = [
 		type: 'Lemon classic',
 		image: 'ornamental-1235',
 		attentionText: 'Grows year-round.',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Plant',
@@ -389,7 +389,7 @@ const ornamentalSunflowersProducts = [
 		type: 'Yellow core',
 		image: 'ornamental-1252',
 		attentionText: 'Grows year-round.',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Plant',
@@ -423,7 +423,7 @@ const ornamentalSunflowersProducts = [
 		type: 'Orange classic',
 		image: 'ornamental-98',
 		attentionText: 'Grows year-round.',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Plant',
@@ -457,7 +457,7 @@ const ornamentalSunflowersProducts = [
 		type: 'Full flower',
 		image: 'ornamental-214',
 		attentionText: 'Grows year-round.',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Plant',
@@ -491,7 +491,7 @@ const ornamentalSunflowersProducts = [
 		type: 'Yellow core',
 		image: 'ornamental-135',
 		attentionText: 'Grows year-round.',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Plant',
@@ -525,7 +525,7 @@ const ornamentalSunflowersProducts = [
 		type: 'BI Color',
 		image: 'ornamental-500',
 		attentionText: 'Grows year-round.',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Plant',
@@ -559,7 +559,7 @@ const ornamentalSunflowersProducts = [
 		type: 'Lemon classic',
 		image: 'ornamental-893',
 		attentionText: 'Grows year-round.',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Plant',
@@ -593,7 +593,7 @@ const ornamentalSunflowersProducts = [
 		type: 'BI Color',
 		image: 'ornamental-337',
 		attentionText: 'Grows year-round.',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Plant',
@@ -627,7 +627,7 @@ const ornamentalSunflowersProducts = [
 		type: 'Lemon classic',
 		image: 'ornamental-460',
 		attentionText: 'Grows year-round.',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Plant',
@@ -663,7 +663,7 @@ const wheatProducts = [
 		name: 'Yuval',
 		type: 'Spring Wheat',
 		image: 'wheat-yuval',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Summary',
@@ -682,7 +682,7 @@ const wheatProducts = [
 		name: 'Nirit',
 		type: 'Spring Wheat',
 		image: 'wheat-nirit',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Summary',
@@ -701,7 +701,7 @@ const wheatProducts = [
 		name: 'Gedera',
 		type: 'Spring Wheat',
 		image: 'wheat-gedera',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Summary',
@@ -720,7 +720,7 @@ const wheatProducts = [
 		name: 'Omer',
 		type: 'Spring Wheat',
 		image: 'wheat-omer',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Summary',
@@ -739,7 +739,7 @@ const wheatProducts = [
 		name: 'C-9 ',
 		type: 'DURUM',
 		image: 'wheat-c-9',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Summary',
@@ -758,7 +758,7 @@ const wheatProducts = [
 		name: 'Amit',
 		type: 'Spring Wheat',
 		image: 'wheat-amit',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Summary',
@@ -777,7 +777,7 @@ const wheatProducts = [
 		name: 'DAR',
 		type: 'Spring Wheat (silage)',
 		image: 'wheat-dar',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Summary',
@@ -796,7 +796,7 @@ const wheatProducts = [
 		name: 'AG-78 (new)',
 		type: 'Spring Type grains & silage',
 		image: 'wheat-ag-78-new',
-		info: [
+		details: [
 			{
 				id: 0,
 				title: 'Summary',
@@ -812,72 +812,86 @@ const wheatProducts = [
 	}
 ]
 
-export const products = [
+export const categories = [
 	{
 		id: 0,
-		categoryShortName: 'Tomato',
-		categoryFullName: 'Agridera Fresh Market Tomato Hybrids',
-		categoryMinifyName: 'tomato',
-		categoryImage: 'tomato',
-		disabled: false,
-		products: tomatoProducts,
-		attentionIcon: 'tomato-attention-icon.svg',
-		productBG: 'tomato-product-bg.svg'
+		name: {
+			short: 'Tomato',
+			full: 'Agridera Fresh Market Tomato Hybrids',
+			minify: 'tomato'
+		},
+		image: 'image.jpg',
+		bg: 'bg.jpg',
+		productBG: 'product-bg.svg',
+		attentionIcon: 'attention-icon.svg',
+		products: tomatoProducts
 	},
 	{
 		id: 1,
-		categoryShortName: 'Ornamental Sunflowers',
-		categoryFullName: 'Ornamental Sunflowers',
-		categoryMinifyName: 'ornamentalSunflowers',
-		categoryImage: 'ornamentalSunflowers',
-		disabled: false,
-		products: ornamentalSunflowersProducts,
-		attentionIcon: 'ornamentalSunflowers-attention-icon.svg',
-		productBG: 'ornamentalSunflowers-product-bg.svg'
+		name: {
+			short: 'Ornamental Sunflowers',
+			full: 'Ornamental Sunflowers',
+			minify: 'ornamentalSunflowers'
+		},
+		image: 'image.jpg',
+		bg: 'bg.jpg',
+		productBG: 'product-bg.svg',
+		attentionIcon: 'attention-icon.svg',
+		products: ornamentalSunflowersProducts
 	},
 	{
 		id: 2,
-		categoryShortName: 'Wheat',
-		categoryFullName: 'R&D Of Wheat and Barley',
-		categoryMinifyName: 'wheat',
-		categoryImage: 'wheat',
-		disabled: false,
-		products: wheatProducts,
-		productBG: 'wheat-product-bg.svg'
+		name: {
+			short: 'Wheat',
+			full: 'R&D Of Wheat and Barley',
+			minify: 'wheat'
+		},
+		image: 'image.jpg',
+		bg: 'bg.jpg',
+		productBG: 'product-bg.svg',
+		products: wheatProducts
 	},
 	{
 		id: 3,
-		categoryShortName: 'Confection Sunflowers',
-		categoryFullName: '',
-		categoryMinifyName: 'confectionSunflowers',
-		categoryImage: 'confectionSunflowers',
+		name: {
+			short: 'Confection Sunflowers',
+			full: 'Confection Sunflowers',
+			minify: 'confectionSunflowers'
+		},
+		image: 'image.jpg',
 		disabled: true,
 		products: []
 	},
 	{
 		id: 4,
-		categoryShortName: 'Clover',
-		categoryFullName: '',
-		categoryMinifyName: 'clover',
-		categoryImage: 'clover',
+		name: {
+			short: 'Clover',
+			full: 'Clover',
+			minify: 'clover'
+		},
+		image: 'image.jpg',
 		disabled: true,
 		products: []
 	},
 	{
 		id: 5,
-		categoryShortName: 'Eggplant O/P',
-		categoryFullName: '',
-		categoryMinifyName: 'eggplant',
-		categoryImage: 'eggplant',
+		name: {
+			short: 'Eggplant O/P',
+			full: 'Eggplant O/P',
+			minify: 'eggplant'
+		},
+		image: 'image.jpg',
 		disabled: true,
 		products: []
 	},
 	{
 		id: 6,
-		categoryShortName: 'Confection Watermelon',
-		categoryFullName: '',
-		categoryMinifyName: 'confectionWatermelon',
-		categoryImage: 'confectionWatermelon',
+		name: {
+			short: 'Confection Watermelon',
+			full: 'Confection Watermelon',
+			minify: 'confectionWatermelon'
+		},
+		image: 'image.jpg',
 		disabled: true,
 		products: []
 	}
