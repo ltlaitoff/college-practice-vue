@@ -27,3 +27,12 @@ export const loadMainActivitiesImages = data => {
 		}
 	})
 }
+
+export const loadSocialIcons = data => {
+	return data.map(item => {
+		return {
+			...item,
+			icon: require('@/assets/images/icons/' + item.icon)
+		}
+	})
+}
