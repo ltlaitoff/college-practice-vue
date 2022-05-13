@@ -1,7 +1,7 @@
 import VueRouter from 'vue-router'
 import { shallowMount, createLocalVue } from '@vue/test-utils'
 import 'jsdom-global'
-
+import InlineSvg from 'vue-inline-svg'
 import ProductPage from '../ProductPage.vue'
 
 import MainTitle from '@/components/MainTitle'
@@ -10,42 +10,56 @@ import { BCol, BContainer, BImg, BRow } from 'bootstrap-vue'
 
 const DATA = {
 	id: 0,
-	categoryShortName: 'First test short',
-	categoryFullName: 'First test full',
-	categoryMinifyName: 'fisttest',
-	categoryImage: 'fisttest',
-	disabled: false,
+	name: {
+		short: 'category1 short',
+		full: 'category1 full',
+		minify: 'category1 minify'
+	},
+	image: 'image.jpg',
+	icon: 'icon.svg',
+	bg: 'bg.jpg',
+	productBG: 'product-bg.svg',
+	attentionIcon: 'attention-icon.svg',
 	products: [
 		{
 			id: 0,
-			name: 'product first',
-			type: 'type',
-			image: 'p1test',
+			name: 'Test1 Product1',
+			type: 'Test1ProductType1',
+			image: 'test-img',
 			attentionText: 'attentionText',
-			info: [
+			details: [
 				{
 					id: 0,
-					title: 'info1',
-					text: 'info1text'
+					title: 'detail1',
+					text: 'detail1 text'
 				},
 				{
 					id: 1,
-					title: 'info2',
-					texts: ['info21', 'info22']
+					title: 'detail2',
+					texts: ['detail1 text1', 'detail1 text2', 'detail1 text3']
 				}
 			]
+		},
+		{
+			id: 1,
+			name: 'Test1 Product2',
+			type: 'Test1ProductType2',
+			image: 'test-img',
+			attentionText: 'attentionText'
 		}
 	]
 }
 
 const getProductInfoById = id => {
-	return DATA.products[0].info.filter(info => info.id === Number(id))[0]
+	return DATA.products[0].details.filter(info => info.id === Number(id))[0]
 }
 
-jest.mock('../helpers/getImages', () => {
+jest.mock('../helpers/loadImages', () => {
 	return {
-		getCategoryImages: value => value,
-		getProductImages: value => value
+		loadLeftArrow: () => 'left-arrow-icon',
+		loadPDFIcon: () => 'pdf-icon',
+		loadProductImages: (category, product) => product,
+		loadCategoryImages: category => category
 	}
 })
 
@@ -111,9 +125,10 @@ describe('ProductPage', () => {
 		const button = wrapper.find('button')
 
 		expect(button.exists()).toBe(true)
-		expect(button.find('img').exists()).toBe(true)
-
-		expect(button.find('img').attributes().alt).not.toBe(undefined)
+		expect(button.findComponent(InlineSvg).exists()).toBe(true)
+		expect(button.findComponent(InlineSvg).attributes().src).toBe(
+			'left-arrow-icon'
+		)
 
 		expect(button.text()).toBe('Return back')
 	})
@@ -122,15 +137,16 @@ describe('ProductPage', () => {
 		const h2 = wrapper.find('h2')
 
 		expect(h2.exists()).toBe(true)
-		expect(h2.text()).toBe('product first type')
+
+		expect(h2.text()).toBe('Test1 Product1 Test1ProductType1')
 	})
 
 	it('Attention should be in component', () => {
 		const attention = wrapper.find('[data-testid="attention"]')
 
 		expect(attention.exists()).toBe(true)
-		expect(attention.find('img').exists()).toBe(true)
-		expect(attention.find('img').attributes().alt).not.toBe(undefined)
+		expect(attention.findComponent(BImg).exists()).toBe(true)
+		expect(attention.findComponent(BImg).attributes().alt).not.toBe(undefined)
 
 		expect(attention.text()).toBe('attentionText')
 	})
@@ -139,13 +155,15 @@ describe('ProductPage', () => {
 		const imageblock = wrapper.find('[data-testid="mainimage"]')
 
 		expect(imageblock.exists()).toBe(true)
-		expect(imageblock.find('img').exists()).toBe(true)
-		expect(imageblock.find('img').attributes().alt).not.toBe(undefined)
+		expect(imageblock.findComponent(BImg).exists()).toBe(true)
+		expect(imageblock.findComponent(BImg).attributes().src).toBe('test-img')
+		expect(imageblock.findComponent(BImg).attributes().alt).not.toBe(undefined)
 
 		const button = imageblock.find('button')
 		expect(button.exists()).toBe(true)
-		expect(button.find('img').exists()).toBe(true)
-		expect(button.find('img').attributes().alt).not.toBe(undefined)
+		const buttonSVG = button.findComponent(InlineSvg)
+		expect(buttonSVG.exists()).toBe(true)
+		expect(buttonSVG.attributes().src).toBe('pdf-icon')
 
 		await button.trigger('click')
 

@@ -18,12 +18,6 @@ import {
 	BListGroupItem
 } from 'bootstrap-vue'
 
-jest.mock('@/helpers/getImages', () => {
-	return {
-		getProductsImages: value => value
-	}
-})
-
 const DATA = [
 	{
 		id: 0,

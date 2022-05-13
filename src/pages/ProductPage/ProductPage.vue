@@ -7,11 +7,11 @@
 		<b-container class="container">
 			<MainTitle :visibility="false" />
 			<button class="back" @click="$router.back()">
-				<b-img src="@/assets/icons/arrow-left.svg" alt="left arrow" />
+				<inline-svg :src="leftArrow" alt="left arrow"></inline-svg>
 				Return back
 			</button>
-			<b-row>
-				<b-col>
+			<b-row class="main-row">
+				<b-col lg="6" md="12">
 					<h2 class="name">
 						{{ product.name }} <span class="black">{{ product.type }}</span>
 					</h2>
@@ -23,7 +23,7 @@
 						v-if="product.attentionText"
 						data-testid="attention"
 					>
-						<img
+						<b-img
 							:src="category.attentionIcon"
 							alt="attention icon"
 							class="attention-icon"
@@ -31,10 +31,10 @@
 						{{ product.attentionText }}
 					</div>
 				</b-col>
-				<b-col class="image" data-testid="mainimage">
-					<img :src="product.image" alt="product image" class="main-image" />
+				<b-col class="image" data-testid="mainimage" lg="6" md="12">
+					<b-img :src="product.image" alt="product image" class="main-image" />
 					<button class="download" @click="downloadAlert">
-						<b-img src="@/assets/icons/pdf.svg" alt="pdf icon"></b-img>
+						<inline-svg :src="pdfIcon" alt="pdf arrow"></inline-svg>
 						Download
 					</button>
 				</b-col>
@@ -42,22 +42,28 @@
 
 			<b-row class="info">
 				<b-col
+					lg="4"
+					md="6"
+					sm="8"
+					cols="8"
+					offset-md="0"
+					offset-sm="3"
+					offset="2"
 					class="col info-card"
-					cols="6"
-					v-for="info in product.info"
-					:key="info.id"
+					v-for="detail in product.details"
+					:key="detail.id"
 					data-testid="card"
-					:data-test-cardid="info.id"
+					:data-test-cardid="detail.id"
 				>
-					<h3 class="info-title">{{ info.title }}</h3>
+					<h3 class="info-title">{{ detail.title }}</h3>
 					<hr class="info-divider" />
 					<vue-markdown
 						class="text"
 						:postrender="value => addClassForTags(value)"
 						data-testid="info-text"
-						>{{ info.text }}</vue-markdown
+						>{{ detail.text }}</vue-markdown
 					>
-					<ul class="list" v-for="text in info.texts" :key="text">
+					<ul class="list" v-for="text in detail.texts" :key="text">
 						<li class="item">
 							<vue-markdown
 								class="text"
@@ -74,16 +80,25 @@
 
 <script>
 import VueMarkdown from 'vue-markdown'
+import InlineSvg from 'vue-inline-svg'
+
 import { getCategoryByMinifyName } from '@/api'
 import AGDivider from '@/components/AGDivider'
 import MainTitle from '@/components/MainTitle'
 import getCurrentProductById from './helpers/getCurrentProductById.js'
-import { getCategoryImages, getProductImages } from './helpers/getImages'
+
+import {
+	loadLeftArrow,
+	loadPDFIcon,
+	loadProductImages,
+	loadCategoryImages
+} from './helpers/loadImages'
 
 export default {
 	name: 'ProductPage',
 	components: {
 		VueMarkdown,
+		InlineSvg,
 		MainTitle,
 		AGDivider
 	},
@@ -98,12 +113,21 @@ export default {
 		const productId = this.$route.params.id
 
 		getCategoryByMinifyName(categoryName).then(data => {
-			this.category = getCategoryImages(data)
+			this.category = loadCategoryImages(data)
 
-			this.product = getProductImages(getCurrentProductById(productId, data))
+			this.product = loadProductImages(
+				categoryName,
+				getCurrentProductById(productId, data)
+			)
 		})
 	},
 	computed: {
+		leftArrow() {
+			return loadLeftArrow()
+		},
+		pdfIcon() {
+			return loadPDFIcon()
+		},
 		downloadAlert() {
 			return () => window.alert('В данный момент функция не доступна')
 		}

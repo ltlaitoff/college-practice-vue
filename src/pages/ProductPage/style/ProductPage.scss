@@ -7,6 +7,10 @@
 	padding-bottom: 60px;
 }
 
+.main-row {
+	row-gap: 30px;
+}
+
 .back {
 	margin: 20px 0;
 	border: none;
@@ -51,8 +55,7 @@
 }
 
 .main-image {
-	width: 540px;
-	height: 500px;
+	width: 100%;
 }
 
 .name {

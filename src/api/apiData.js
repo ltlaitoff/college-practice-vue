@@ -3,7 +3,7 @@ const tomatoProducts = [
 		id: 0,
 		name: 'TAG 1000 (TAG 853)',
 		type: 'Tomato Determinate Red Round',
-		image: 'tomato-1000',
+		image: '1000.jpg',
 		attentionText: 'Very high yield and excellent fruits quality!',
 		details: [
 			{
@@ -45,18 +45,22 @@ const tomatoProducts = [
 		id: 1,
 		name: 'TAG 1001 (TAG 855)',
 		type: 'Tomato Determinate Red Standard',
-		image: 'tomato-1001',
+		image: '1001.jpg',
 		attentionText: '',
 		details: [
 			{
 				id: 0,
-				title: '',
-				texts: ['', '']
+				title: 'CHARACTERISTICS',
+				text: '**Resistance**\nHR: ToMV:0-2; Fol: 1,2; Ve/Vd;\nIR: TYLCV'
 			},
 			{
 				id: 1,
-				title: '',
-				texts: ['', '']
+				title: 'Plant',
+				texts: [
+					'Strong vigor that provides good leaf coverage.',
+					'Very high productivity with good fruit setting.',
+					'Early matured variety.'
+				]
 			}
 		]
 	},
@@ -64,7 +68,7 @@ const tomatoProducts = [
 		id: 2,
 		name: 'TAG 1002 (TAG 809)',
 		type: 'Tomato Determinate Red Standard-round',
-		image: 'tomato-1002',
+		image: '1002.jpg',
 		attentionText: 'Very high yield and excellent fruits quality!',
 		details: [
 			{
@@ -106,7 +110,7 @@ const tomatoProducts = [
 		id: 3,
 		name: 'TAG 1003 (TAG 834)',
 		type: 'Tomato Determinate Red',
-		image: 'tomato-1003',
+		image: '1003.jpg',
 		attentionText: 'Very high yield and excellent fruits quality!',
 		details: [
 			{
@@ -148,7 +152,7 @@ const tomatoProducts = [
 		id: 4,
 		name: 'TAG 1004 (TAG 848)',
 		type: 'Tomato Determinate Red BEEF Round',
-		image: 'tomato-1004',
+		image: '1004.jpg',
 		attentionText: 'Very high yield and excellent fruits quality!',
 		details: [
 			{
@@ -190,7 +194,7 @@ const tomatoProducts = [
 		id: 5,
 		name: 'TAG 1005 (TAG 800) ',
 		type: 'Tomato Determinate Red Standard-round-2',
-		image: 'tomato-1005',
+		image: '1005.jpg',
 		attentionText: 'Very high yield and excellent fruits quality!',
 		details: [
 			{
@@ -232,7 +236,7 @@ const tomatoProducts = [
 		id: 6,
 		name: 'TAG 1006 (TAG 898)',
 		type: 'Tomato Determinate Red Elongated',
-		image: 'tomato-1006',
+		image: '1006.jpg',
 		attentionText: 'Very high yield and excellent fruits quality!',
 		details: [
 			{
@@ -274,7 +278,7 @@ const tomatoProducts = [
 		id: 7,
 		name: 'TAG 1007 (TAG 816)',
 		type: 'Tomato Determinate Red Alon',
-		image: 'tomato-1007',
+		image: '1007.jpg',
 		attentionText: 'Very high yield and excellent fruits quality!',
 		details: [
 			{
@@ -319,7 +323,7 @@ const ornamentalSunflowersProducts = [
 		id: 0,
 		name: 'Tabor Double (859)',
 		type: 'Classic',
-		image: 'ornamental-859',
+		image: '859.jpg',
 		attentionText: 'Grows year-round.',
 		details: [
 			{
@@ -353,7 +357,7 @@ const ornamentalSunflowersProducts = [
 		id: 1,
 		name: 'Tabor Lemon - 1235',
 		type: 'Lemon classic',
-		image: 'ornamental-1235',
+		image: '1235.jpg',
 		attentionText: 'Grows year-round.',
 		details: [
 			{
@@ -387,7 +391,7 @@ const ornamentalSunflowersProducts = [
 		id: 2,
 		name: 'Tabor Orange 1252',
 		type: 'Yellow core',
-		image: 'ornamental-1252',
+		image: '1252.jpg',
 		attentionText: 'Grows year-round.',
 		details: [
 			{
@@ -421,7 +425,7 @@ const ornamentalSunflowersProducts = [
 		id: 3,
 		name: 'Maya Orange - JG-98',
 		type: 'Orange classic',
-		image: 'ornamental-98',
+		image: '98.jpg',
 		attentionText: 'Grows year-round.',
 		details: [
 			{
@@ -455,7 +459,7 @@ const ornamentalSunflowersProducts = [
 		id: 4,
 		name: 'Omri Supreme - JG-214',
 		type: 'Full flower',
-		image: 'ornamental-214',
+		image: '214.jpg',
 		attentionText: 'Grows year-round.',
 		details: [
 			{
@@ -489,7 +493,7 @@ const ornamentalSunflowersProducts = [
 		id: 5,
 		name: 'Maya Gold Supreme - DC 135',
 		type: 'Yellow core',
-		image: 'ornamental-135',
+		image: '135.jpg',
 		attentionText: 'Grows year-round.',
 		details: [
 			{
@@ -523,7 +527,7 @@ const ornamentalSunflowersProducts = [
 		id: 6,
 		name: 'Tanja - 500',
 		type: 'BI Color',
-		image: 'ornamental-500',
+		image: '500.jpg',
 		attentionText: 'Grows year-round.',
 		details: [
 			{
@@ -557,7 +561,7 @@ const ornamentalSunflowersProducts = [
 		id: 7,
 		name: 'Helianthus Flame 893 ',
 		type: 'Lemon classic',
-		image: 'ornamental-893',
+		image: '893.jpg',
 		attentionText: 'Grows year-round.',
 		details: [
 			{
@@ -591,7 +595,7 @@ const ornamentalSunflowersProducts = [
 		id: 8,
 		name: 'Carmel 337',
 		type: 'BI Color',
-		image: 'ornamental-337',
+		image: '337.jpg',
 		attentionText: 'Grows year-round.',
 		details: [
 			{
@@ -625,7 +629,7 @@ const ornamentalSunflowersProducts = [
 		id: 9,
 		name: 'Galilee Orange 460',
 		type: 'Lemon classic',
-		image: 'ornamental-460',
+		image: '460.jpg',
 		attentionText: 'Grows year-round.',
 		details: [
 			{
@@ -662,7 +666,7 @@ const wheatProducts = [
 		id: 0,
 		name: 'Yuval',
 		type: 'Spring Wheat',
-		image: 'wheat-yuval',
+		image: 'yuval.jpg',
 		details: [
 			{
 				id: 0,
@@ -681,7 +685,7 @@ const wheatProducts = [
 		id: 1,
 		name: 'Nirit',
 		type: 'Spring Wheat',
-		image: 'wheat-nirit',
+		image: 'nirit.jpg',
 		details: [
 			{
 				id: 0,
@@ -700,7 +704,7 @@ const wheatProducts = [
 		id: 2,
 		name: 'Gedera',
 		type: 'Spring Wheat',
-		image: 'wheat-gedera',
+		image: 'gedera.jpg',
 		details: [
 			{
 				id: 0,
@@ -719,7 +723,7 @@ const wheatProducts = [
 		id: 3,
 		name: 'Omer',
 		type: 'Spring Wheat',
-		image: 'wheat-omer',
+		image: 'omer.jpg',
 		details: [
 			{
 				id: 0,
@@ -738,7 +742,7 @@ const wheatProducts = [
 		id: 4,
 		name: 'C-9 ',
 		type: 'DURUM',
-		image: 'wheat-c-9',
+		image: 'c-9.jpg',
 		details: [
 			{
 				id: 0,
@@ -757,7 +761,7 @@ const wheatProducts = [
 		id: 5,
 		name: 'Amit',
 		type: 'Spring Wheat',
-		image: 'wheat-amit',
+		image: 'amit.jpg',
 		details: [
 			{
 				id: 0,
@@ -776,7 +780,7 @@ const wheatProducts = [
 		id: 6,
 		name: 'DAR',
 		type: 'Spring Wheat (silage)',
-		image: 'wheat-dar',
+		image: 'dar.jpg',
 		details: [
 			{
 				id: 0,
@@ -795,7 +799,7 @@ const wheatProducts = [
 		id: 7,
 		name: 'AG-78 (new)',
 		type: 'Spring Type grains & silage',
-		image: 'wheat-ag-78-new',
+		image: 'ag-78-new.jpg',
 		details: [
 			{
 				id: 0,
