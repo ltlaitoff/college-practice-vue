@@ -64,15 +64,15 @@
 		text-decoration: none;
 		transition: 200ms;
 
-		color: #ec4899;
+		color: var(--pink-500);
 		.icon {
-			fill: #ec4899;
+			fill: var(--pink-500);
 		}
 	}
 
 	&:focus-visible {
 		transition: 0;
-		outline-color: #ec4899;
+		outline-color: var(--pink-500);
 	}
 }
 

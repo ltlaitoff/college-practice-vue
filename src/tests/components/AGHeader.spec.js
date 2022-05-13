@@ -6,11 +6,16 @@ import 'jsdom-global'
 
 import {
 	BButton,
+	BCollapse,
 	BContainer,
 	BFormInput,
 	BIcon,
 	BImg,
-	BLink
+	BNavbar,
+	BNavbarBrand,
+	BNavbarNav,
+	BNavbarToggle,
+	BNavForm
 } from 'bootstrap-vue'
 
 const localVue = createLocalVue()
@@ -28,8 +33,13 @@ describe('AGHeader', () => {
 			router,
 			stubs: {
 				'b-container': BContainer,
-				'b-link': BLink,
+				'b-navbar': BNavbar,
+				'b-navbar-brand': BNavbarBrand,
 				'b-img': BImg,
+				'b-navbar-toggle': BNavbarToggle,
+				'b-collapse': BCollapse,
+				'b-navbar-nav': BNavbarNav,
+				'b-nav-form': BNavForm,
 				'b-form-input': BFormInput,
 				'b-button': BButton,
 				'b-icon': BIcon
@@ -41,29 +51,66 @@ describe('AGHeader', () => {
 		wrapper.destroy()
 	})
 
-	it('BContainer should be have children header component', () => {
-		expect(
-			wrapper.getComponent('.container').getComponent('header').exists()
-		).toBe(true)
+	it('header should be in component', () => {
+		const header = wrapper.find('header')
+
+		expect(header.exists()).toBe(true)
 	})
 
-	it('Search input should be in component', () => {
-		expect(wrapper.findComponent('input.search').exists()).toBe(true)
+	{
+		//		<b-form-input
+		//			v-model="searchInput"
+		//			size="sm"
+		//			class="search"
+		//			placeholder="Search"
+		//		></b-form-input>
+		//		<b-button size="sm" class="button" type="submit">
+		//			<b-icon icon="search" />
+		//		</b-button>
+	}
+
+	it('b-navbar should be in component', () => {
+		expect(wrapper.findComponent(BNavbar).exists()).toBe(true)
 	})
 
-	it('Button should be in header and should be have a icon as children', () => {
-		const header = wrapper.findComponent('header')
-		const button = header.findComponent('button.button')
-		const icon = button.findComponent('.b-icon')
+	it('b-navbar-brand should be in component and should have img', () => {
+		const brand = wrapper.findComponent(BNavbarBrand)
+		expect(brand.exists()).toBe(true)
+		expect(brand.attributes().href).toBe('/')
 
+		const img = brand.findComponent(BImg)
+		expect(img.exists()).toBe(true)
+		expect(img.attributes().src).not.toBe(undefined)
+		expect(img.attributes().alt).not.toBe(undefined)
+	})
+
+	it('b-navbar-toggle and b-collapse should be in component', () => {
+		const toggle = wrapper.findComponent(BNavbarToggle)
+		const collapse = wrapper.findComponent(BCollapse)
+
+		expect(toggle.exists()).toBe(true)
+		expect(collapse.exists()).toBe(true)
+
+		expect(toggle.attributes()['aria-controls']).toBe(collapse.attributes().id)
+	})
+
+	it('b-collapse should have b-navbar-nav and MainNavigation', () => {
+		const collapse = wrapper.findComponent(BCollapse)
+
+		expect(collapse.findComponent(BNavbarNav).exists()).toBe(true)
+		expect(collapse.findComponent(MainNavigation).exists()).toBe(true)
+	})
+
+	it('search b-navbar-nav should have a b-nav-form > b-form-input, b-button', () => {
+		const nav = wrapper.findComponent(BNavbarNav)
+		const form = nav.findComponent(BNavForm)
+		const input = form.findComponent(BFormInput)
+		const button = form.findComponent(BButton)
+
+		expect(form.exists()).toBe(true)
+		expect(input.exists()).toBe(true)
 		expect(button.exists()).toBe(true)
-		expect(icon.exists()).toBe(true)
 	})
 
-	it('MainNavigation should be in header', () => {
-		const header = wrapper.findComponent('header')
-		const mainNavigation = header.findComponent(MainNavigation)
-
-		expect(mainNavigation.exists()).toBe(true)
-	})
+	//FIXME: Add test for search submit
 })
