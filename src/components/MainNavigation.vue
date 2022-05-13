@@ -1,18 +1,15 @@
 <template>
-	<nav class="navigation">
-		<b-nav card-header>
-			<b-nav-item
-				v-for="item in navigationItems"
-				:class="`${type}`"
-				:key="item.id"
-				:to="item.path"
-				exact
-				exact-active-class="active"
-				:disabled="item.active === false"
-				>{{ item.name }}</b-nav-item
-			>
-		</b-nav>
-	</nav>
+	<b-navbar-nav card-header>
+		<b-nav-item
+			v-for="item in navigationItems"
+			:key="item.id"
+			:to="item.path"
+			exact
+			exact-active-class="active"
+			:disabled="item.active === false"
+			>{{ item.name }}</b-nav-item
+		>
+	</b-navbar-nav>
 </template>
 
 <script>

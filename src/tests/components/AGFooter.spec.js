@@ -4,7 +4,7 @@ import MainNavigation from '@/components/MainNavigation'
 import AGSocial from '@/components/AGSocial'
 import 'jsdom-global'
 
-import { BContainer } from 'bootstrap-vue'
+import { BContainer, BNavbar } from 'bootstrap-vue'
 
 jest.mock('../../data/social', () => [
 	{
@@ -40,7 +40,8 @@ describe('AGFooter', () => {
 	beforeEach(() => {
 		wrapper = shallowMount(AGFooter, {
 			stubs: {
-				'b-container': BContainer
+				'b-container': BContainer,
+				'b-navbar': BNavbar
 			}
 		})
 	})

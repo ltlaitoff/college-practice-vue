@@ -15,11 +15,12 @@
 
 <script>
 import socialData from '@/data/social'
+import { loadSocialIcons } from '@/helpers/loadImages'
 
 export default {
 	data() {
 		return {
-			socialData: socialData
+			socialData: loadSocialIcons(socialData)
 		}
 	}
 }

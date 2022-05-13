@@ -3,6 +3,8 @@
 :root {
 	--text-color: #324950;
 	--buttons-color: #57984c;
+	--pink-500: #ec4899;
+	--sky-500: #0ea5e9;
 }
 
 *,
@@ -23,6 +25,13 @@
 // Define variable defaults
 $body-bg: #f7f7f7;
 $body-color: #111;
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 768px,
+	lg: 992px,
+	xl: 1200px
+);
 
 // Then import Bootstrap and BootstrapVue SCSS files (order is important)
 @import '../node_modules/bootstrap/scss/bootstrap.scss';

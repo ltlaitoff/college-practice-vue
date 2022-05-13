@@ -32,6 +32,12 @@ jest.mock('../../data/social', () => [
 	}
 ])
 
+jest.mock('@/helpers/loadImages', () => {
+	return {
+		loadSocialIcons: value => value
+	}
+})
+
 describe('AGSocial', () => {
 	let wrapper = null
 

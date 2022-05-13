@@ -3,7 +3,9 @@
 		<HomePromo />
 		<SubProducts />
 		<HomeAbout />
-		<MainActivities />
+		<MainActivities>
+			<h2 class="title">Agridedisra's main activities</h2>
+		</MainActivities>
 	</div>
 </template>
 

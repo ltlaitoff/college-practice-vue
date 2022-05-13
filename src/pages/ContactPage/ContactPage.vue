@@ -1,14 +1,14 @@
 <template>
 	<div class="full">
-		<PageBG :img="require('./assets/contactUsPageBg.jpg')" imgAlt="bg" />
+		<PageBG :img="pageBGImage" imgAlt="bg" />
 		<b-container class="container">
 			<MainTitle :visibility="false" />
 			<h2 class="title">Contact us</h2>
 			<AGDivider class="divider" />
 
-			<b-form @submit="onSubmit" @reset="onReset" v-if="data">
+			<b-form @submit="onSubmit" v-if="data">
 				<b-row>
-					<b-col cols="4">
+					<b-col lg="4" md="8" offset-md="2" offset-lg="0">
 						<b-form-group
 							v-for="item in data"
 							:key="item.id"
@@ -19,16 +19,20 @@
 							<b-form-input
 								:id="item.inputId"
 								v-model="form[item.vModel]"
-								:type="item.type"
+								type="text"
 								:placeholder="item.placeholder"
 								:required="item.required"
 							></b-form-input>
 						</b-form-group>
 					</b-col>
 
-					<b-col cols="1"></b-col>
-
-					<b-col cols="7" class="flex flex-column content-space-between">
+					<b-col
+						lg="7"
+						offset-lg="1"
+						md="8"
+						offset-md="2"
+						class="flex flex-column content-space-between"
+					>
 						<b-form-group
 							id="input-group-sex"
 							label="You are a:"
@@ -68,23 +72,21 @@
 							></b-form-textarea>
 						</b-form-group>
 
-						<div class="form-bottom">
-							<b-form-group
-								id="input-group-code"
-								label="You are interested in"
-								label-for="input-code"
-							>
-								<img src="./assets/code.jpg" alt="code" />
-								<b-form-input
-									id="input-code"
-									v-model="code"
-									type="text"
-									required
-								></b-form-input>
-							</b-form-group>
+						<b-form-group
+							id="input-group-code"
+							label="You are interested in"
+							label-for="input-code"
+						>
+							<img src="./assets/code.jpg" alt="code" />
+							<b-form-input
+								id="input-code"
+								v-model="code"
+								type="text"
+								required
+							></b-form-input>
+						</b-form-group>
 
-							<b-button type="submit" class="button">Send Message</b-button>
-						</div>
+						<b-button type="submit" class="button">Send Message</b-button>
 					</b-col>
 				</b-row>
 			</b-form>
@@ -103,75 +105,12 @@
 </template>
 
 <script>
-const DATA = [
-	{
-		id: 'input-group-name',
-		label: 'Name: *',
-		inputId: 'input-name',
-		vModel: 'name',
-		type: 'text',
-		placeholder: 'Enter name',
-		required: true
-	},
-	{
-		id: 'input-group-companyName',
-		label: 'Company Name:',
-		inputId: 'input-companyName',
-		vModel: 'companyName',
-		type: 'text',
-		placeholder: 'Enter company name',
-		required: false
-	},
-	{
-		id: 'input-group-position',
-		label: 'Position:',
-		inputId: 'input-position',
-		vModel: 'position',
-		type: 'text',
-		placeholder: 'Enter position',
-		required: false
-	},
-	{
-		id: 'input-group-city',
-		label: 'City:',
-		inputId: 'input-city',
-		vModel: 'city',
-		type: 'text',
-		placeholder: 'Enter city',
-		required: false
-	},
-	{
-		id: 'input-group-country',
-		label: 'Country:',
-		inputId: 'input-country',
-		vModel: 'country',
-		type: 'text',
-		placeholder: 'Enter country',
-		required: false
-	},
-	{
-		id: 'input-group-telephone',
-		label: 'Telephone:',
-		inputId: 'input-telephone',
-		vModel: 'telephone',
-		type: 'phone',
-		placeholder: 'Enter telephone',
-		required: false
-	},
-	{
-		id: 'input-group-email',
-		label: 'Email: *',
-		inputId: 'input-email',
-		vModel: 'email',
-		type: 'email',
-		placeholder: 'Enter email',
-		required: true
-	}
-]
-
 import MainTitle from '@/components/MainTitle'
 import AGDivider from '@/components/AGDivider'
 import PageBG from '@/components/PageBG'
+import { loadPageBG } from './helpers/loadPageBG'
+import DATA from './data/data.js'
+
 export default {
 	name: 'ContactPage',
 	components: {
@@ -198,24 +137,16 @@ export default {
 			code: ''
 		}
 	},
+	computed: {
+		pageBGImage() {
+			return loadPageBG()
+		}
+	},
 	methods: {
 		onSubmit(event) {
 			event.preventDefault()
 
 			alert(JSON.stringify(this.form))
-		},
-		onReset(event) {
-			event.preventDefault()
-			// Reset our form values
-			this.form.email = ''
-			this.form.name = ''
-			this.form.food = null
-			this.form.checked = []
-			// Trick to reset/clear native browser form validation state
-			this.show = false
-			this.$nextTick(() => {
-				this.show = true
-			})
 		}
 	}
 }

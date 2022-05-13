@@ -1,12 +1,12 @@
 <template>
 	<div class="full">
 		<MainTitle :visibility="false" />
-		<PageBG :img="pageData.bg" imgAlt="productCategoryPage" />
+		<PageBG :img="pagebg" />
 		<b-container class="container" v-if="categoryData">
-			<h2 class="title">{{ categoryData.categoryFullName }}</h2>
+			<h2 class="title">{{ categoryData.name.full }}</h2>
 			<AGDivider class="divider" />
 			<component :is="getData" class="data" />
-			<b-card-group class="group" columns v-if="categoryData.products">
+			<b-card-group class="group" v-if="categoryData.products">
 				<b-card
 					v-for="item in categoryData.products"
 					:key="item.id"
@@ -33,8 +33,8 @@ import MainTitle from '@/components/MainTitle'
 import PageBG from '@/components/PageBG'
 import AGDivider from '@/components/AGDivider'
 import { getCategoryByMinifyName } from '@/api'
-import { getCategoryProductsImages } from '@/helpers/getImages'
 import pagesData from './data/pagesInfo'
+import { loadPageBG, loadProductsImages } from './helpers/loadImages'
 
 export default {
 	name: 'CategoryPage',
@@ -46,20 +46,21 @@ export default {
 	data() {
 		return {
 			category: this.$route.params.category,
+			pagebg: null,
 			pageData: null,
 			categoryData: null
 		}
 	},
 	created() {
+		this.pagebg = loadPageBG(this.category)
 		this.pageData = pagesData[this.category]
 
-		getCategoryByMinifyName(this.category).then(
-			value =>
-				(this.categoryData = {
-					...value,
-					products: getCategoryProductsImages(value.products)
-				})
-		)
+		getCategoryByMinifyName(this.category).then(value => {
+			this.categoryData = {
+				...value,
+				products: loadProductsImages(this.category, value.products)
+			}
+		})
 	},
 	computed: {
 		getData() {

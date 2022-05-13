@@ -1,7 +1,53 @@
-.header {
+@import '~bootstrap/scss/bootstrap.scss';
+
+.navbar {
+	position: static;
+	height: 100%;
 	padding: 20px 0;
 	display: flex;
 	justify-content: space-between;
+	align-items: stretch;
+}
+
+.navbar-toggler {
+	border: none;
+}
+
+.navbar-collapse {
+	justify-content: flex-end;
+	align-items: stretch;
+}
+
+@include media-breakpoint-down(md) {
+	.navbar-toggler.not-collapsed {
+		position: fixed;
+		top: 14.5vh;
+		right: 14.5vh;
+		z-index: 100;
+	}
+
+	.not-collapsed + .navbar-collapse > .wrapper,
+	.collapsed + .navbar-collapse > .wrapper {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100% !important;
+		background-color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		z-index: 50;
+		transition: 0s all;
+		row-gap: 30px;
+	}
+
+	.search-nav {
+		order: 2;
+	}
+	.menu-nav {
+		order: 1;
+	}
 }
 
 .full {
@@ -30,7 +76,7 @@
 
 .search {
 	width: 100%;
-	height: 100%;
+	height: 36px;
 	padding: 0;
 
 	font-weight: 400;
@@ -40,6 +86,7 @@
 	border: none;
 	border-radius: 0;
 	background-color: transparent;
+	border-bottom: 1px solid var(--text-color);
 
 	&::placeholder {
 		color: var(--text-color);
@@ -50,29 +97,35 @@
 		border-radius: 2px;
 
 		box-shadow: none;
+		background-color: transparent;
+		border: none;
+		border-bottom: 1px solid var(--pink-500);
 	}
 }
 
 .search-wrapper {
 	max-width: 350px;
-	height: 36px;
 
 	position: relative;
 	display: flex;
-	border-bottom: 1px solid var(--text-color);
 }
 
 .button {
 	position: absolute;
 	right: 0;
 	top: 0;
-	background-color: transparent;
+	background-color: transparent !important;
 	border: none;
 	box-shadow: none;
-	color: var(--text-color);
+	color: var(--text-color) !important;
 
 	&:hover {
 		background-color: transparent;
-		color: var(--buttons-color);
+		color: var(--pink-500);
+	}
+
+	&:active {
+		background-color: transparent !important;
+		color: var(--pink-500) !important;
 	}
 }

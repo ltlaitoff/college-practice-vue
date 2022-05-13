@@ -1,6 +1,6 @@
 import { shallowMount } from '@vue/test-utils'
 import MainNavigation from '../../components/MainNavigation'
-import { BNav, BNavItem } from 'bootstrap-vue'
+import { BNavbarNav, BNavItem } from 'bootstrap-vue'
 
 import 'jsdom-global'
 
@@ -49,7 +49,7 @@ describe('MainNavigation', () => {
 	beforeEach(() => {
 		wrapper = shallowMount(MainNavigation, {
 			stubs: {
-				'b-nav': BNav,
+				'b-navbar-nav': BNavbarNav,
 				'b-nav-item': BNavItem
 			}
 		})
@@ -59,8 +59,8 @@ describe('MainNavigation', () => {
 		wrapper.destroy()
 	})
 
-	it('<nav> should be in component ', () => {
-		expect(wrapper.find('nav').exists()).toBe(true)
+	it('BNavBarNav should be in component ', () => {
+		expect(wrapper.findComponent(BNavbarNav).exists()).toBe(true)
 	})
 
 	it('Navigation items count should be 5', () => {

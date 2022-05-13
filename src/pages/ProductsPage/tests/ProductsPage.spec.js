@@ -18,49 +18,98 @@ import {
 	BListGroupItem
 } from 'bootstrap-vue'
 
-jest.mock('@/helpers/getImages', () => {
-	return {
-		getProductsImages: value => value
-	}
-})
-
 const DATA = [
 	{
 		id: 0,
-		categoryShortName: 'First test short',
-		categoryFullName: 'First test full',
-		categoryMinifyName: 'fisttest',
-		categoryImage: 'fisttest',
-		disabled: false,
+		name: {
+			short: 'category1 short',
+			full: 'category1 full',
+			minify: 'category1minify'
+		},
+		image: 'image.jpg',
+		icon: 'icon.svg',
+		bg: 'bg.jpg',
+		productBG: 'product-bg.svg',
+		attentionIcon: 'attention-icon.svg',
 		products: [
 			{
 				id: 0,
-				name: 'product first',
-				type: 'type',
-				image: 'p1test'
+				name: 'Test1 Product1',
+				type: 'Test1ProductType1',
+				image: 'test-img',
+				attentionText: 'attentionText',
+				details: [
+					{
+						id: 0,
+						title: 'detail1',
+						text: 'detail1 text'
+					},
+					{
+						id: 1,
+						title: 'detail2',
+						texts: ['detail1 text1', 'detail1 text2', 'detail1 text3']
+					}
+				]
 			},
 			{
 				id: 1,
-				name: 'product first',
-				type: 'type2',
-				image: 'p2test'
+				name: 'Test1 Product2',
+				type: 'Test1ProductType2',
+				image: 'test-img',
+				attentionText: 'attentionText'
 			}
 		]
 	},
 	{
 		id: 1,
-		categoryShortName: 'Ornamental Sunflowers',
-		categoryFullName: 'Ornamental Sunflowers',
-		categoryMinifyName: 'ornamentalSunflowers',
-		categoryImage: 'ornamentalSunflowers',
-		disabled: true,
-		products: []
+		name: {
+			short: 'category2 short',
+			full: 'category2 full',
+			minify: 'category2minify'
+		},
+		image: 'image.jpg',
+		bg: 'bg.jpg',
+		productBG: 'product-bg.svg',
+		attentionIcon: 'attention-icon.svg',
+		products: [
+			{
+				id: 0,
+				name: 'Test2 Product1',
+				type: 'Test2ProductType',
+				attentionText: 'attentionText',
+				image: 'test-img',
+				details: [
+					{
+						id: 0,
+						title: 'detail1',
+						text: 'detail1 text'
+					},
+					{
+						id: 1,
+						title: 'detail2',
+						texts: ['detail1 text1', 'detail1 text2', 'detail1 text3']
+					}
+				]
+			},
+			{
+				id: 1,
+				name: 'Test2 Product2',
+				type: 'Test2ProductType',
+				image: 'test-img'
+			}
+		]
 	}
 ]
 
 jest.mock('@/api', () => {
 	return {
-		getProducts: async () => DATA
+		getCategories: async () => DATA
+	}
+})
+
+jest.mock('@/helpers/loadImages', () => {
+	return {
+		loadCategoriesImages: value => value
 	}
 })
 
@@ -97,12 +146,11 @@ describe('ProductsPage', () => {
 		expect(wrapper.findComponent(MainTitle).props().visibility).toBe(false)
 	})
 
-	it('PageBG should be in component with src = "testbg" and imgAlt="productsBg"', () => {
+	it('PageBG should be in component with src = "testbg"', () => {
 		const page = wrapper.findComponent(PageBG)
 
 		expect(page.exists()).toBe(true)
 		expect(page.props().img).toBe('testbg')
-		expect(page.props().imgAlt).toBe('productsBg')
 	})
 
 	it('container should be in component', () => {
@@ -133,13 +181,13 @@ describe('ProductsPage', () => {
 			)[0]
 
 			expect(link.attributes().href).toBe(
-				`products/${currentItemData.categoryMinifyName}`
+				`products/${currentItemData.name.minify}`
 			)
 			expect(link.attributes()['aria-disabled']).toBe(
 				currentItemData.disabled ? String(currentItemData.disabled) : undefined
 			)
-			expect(img.attributes().src).toBe(currentItemData.categoryImage)
-			expect(img.attributes().alt).toBe(currentItemData.categoryMinifyName)
+			expect(img.attributes().src).toBe(currentItemData.image)
+			expect(img.attributes().alt).toBe(currentItemData.name.minify)
 		})
 	})
 
@@ -166,13 +214,13 @@ describe('ProductsPage', () => {
 			)[0]
 
 			expect(link.attributes().href).toBe(
-				`products/${currentItemData.categoryMinifyName}`
+				`products/${currentItemData.name.minify}`
 			)
 			expect(link.attributes()['aria-disabled']).toBe(
 				currentItemData.disabled ? String(currentItemData.disabled) : undefined
 			)
 
-			expect(title.text()).toBe(currentItemData.categoryShortName)
+			expect(title.text()).toBe(currentItemData.name.short)
 		})
 	})
 
@@ -207,7 +255,7 @@ describe('ProductsPage', () => {
 				)[0]
 
 				expect(link.attributes().href).toBe(
-					`products/${currentItemData.categoryMinifyName}/${currentProduct.id}`
+					`products/${currentItemData.name.minify}/${currentProduct.id}`
 				)
 
 				const groupItem = link.findComponent(BListGroupItem)

@@ -11,17 +11,20 @@
 	transition-duration: 200ms;
 }
 
-.dark {
+.navbar-light {
 	.nav-link {
-		color: var(--text-color);
+		color: var(--text-color) !important;
 		&:hover {
-			color: var(--info);
+			color: var(--pink-500) !important;
 		}
 	}
+
 	.active {
-		color: var(--buttons-color);
+		position: relative;
+		color: var(--pink-500) !important;
+
 		&:hover {
-			color: var(--warning);
+			color: var(--sky-500) !important;
 		}
 	}
 }

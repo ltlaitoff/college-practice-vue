@@ -2,31 +2,24 @@ import { shallowMount } from '@vue/test-utils'
 import PageBG from '@/components/PageBG'
 import 'jsdom-global'
 
-import { BImg } from 'bootstrap-vue'
-
-describe('AGDivider', () => {
+describe('PageBG', () => {
 	let wrapper = null
 
 	it.each`
-		src         | alt
-		${'imgsrc'} | ${'imgalt'}
-		${'test'}   | ${'test'}
-		${'src'}    | ${'alt'}
-	`('PageBG should have img with src = $src and alt = $alt', ({ src, alt }) => {
+		src
+		${'imgsrc'}
+		${'test'}
+		${'src'}
+	`('PageBG should have img with src = $src and alt = $alt', ({ src }) => {
 		wrapper = shallowMount(PageBG, {
-			stubs: {
-				'b-img': BImg
-			},
 			propsData: {
-				img: src,
-				imgAlt: alt
+				img: src
 			}
 		})
-		const img = wrapper.findComponent(BImg)
-		expect(img.exists()).toBe(true)
-		const imgAttributes = img.attributes()
-		expect(imgAttributes.src).toBe(src)
-		expect(imgAttributes.alt).toBe(alt)
+
+		const div = wrapper.findComponent('div')
+		expect(div.exists()).toBe(true)
+		expect(div.attributes().style).toBe(`background-image: url(${src});`)
 
 		wrapper.destroy()
 	})

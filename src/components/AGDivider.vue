@@ -1,17 +1,28 @@
+
 <template>
 	<div>
 		<ul class="list">
 			<li class="item" v-for="item in 5" :key="item">
-				<b-img src="@/assets/icons/cross.svg" alt="cross" />
+				<inline-svg :src="cross" alt="cross" />
 			</li>
 		</ul>
 	</div>
 </template>
 
 <script>
+import InlineSvg from 'vue-inline-svg'
+import dividerLoadSvg from '@/helpers/dividerLoadSvg'
+
 export default {
 	name: 'AGDivider',
-	components: {}
+	components: {
+		InlineSvg
+	},
+	data() {
+		return {
+			cross: dividerLoadSvg()
+		}
+	}
 }
 </script>
 
