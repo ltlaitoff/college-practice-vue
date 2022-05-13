@@ -1,5 +1,5 @@
 <template>
-	<b-img class="bg" :src="img" :alt="imgAlt" />
+	<div class="bg" :style="{ backgroundImage: `url(${img})` }" />
 </template>
 
 <script>
@@ -7,10 +7,6 @@ export default {
 	name: 'PageBG',
 	props: {
 		img: {
-			type: String,
-			required: true
-		},
-		imgAlt: {
 			type: String,
 			required: true
 		}
