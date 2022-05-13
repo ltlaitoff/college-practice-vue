@@ -1,35 +1,33 @@
 <template>
 	<div class="full">
 		<MainTitle :visibility="false" />
-		<PageBG :img="getBGImage" imgAlt="productsBg" />
+		<PageBG :img="getBGImage" />
 		<b-container class="container">
-			<b-card-group v-if="products" columns class="group">
+			<b-card-group v-if="categories" columns class="group">
 				<b-card
-					v-for="item in products"
+					v-for="item in categories"
 					:key="item.id"
 					no-body
 					class="card"
 					:data-test-id="item.id"
 				>
 					<b-link
-						:to="`products/${item.categoryMinifyName}`"
+						:to="`products/${item.name.minify}`"
 						:disabled="item.disabled"
 					>
 						<b-card-img
-							:src="item.categoryImage"
-							:alt="item.categoryMinifyName"
+							:src="item.image"
+							:alt="item.name.minify"
 							top
 						></b-card-img>
 					</b-link>
 
 					<b-card-body class="body">
 						<b-link
-							:to="`products/${item.categoryMinifyName}`"
+							:to="`products/${item.name.minify}`"
 							:disabled="item.disabled"
 						>
-							<b-card-title class="title">{{
-								item.categoryShortName
-							}}</b-card-title>
+							<b-card-title class="title">{{ item.name.short }}</b-card-title>
 						</b-link>
 
 						<hr class="divider" />
@@ -38,7 +36,7 @@
 							<b-link
 								v-for="product in item.products"
 								:key="product.id"
-								:to="`products/${item.categoryMinifyName}/${product.id}`"
+								:to="`products/${item.name.minify}/${product.id}`"
 								:data-test-id="product.id"
 							>
 								<b-list-group-item class="list-item">{{
@@ -54,8 +52,8 @@
 </template>
 
 <script>
-import { getProducts } from '@/api'
-import { getProductsImages } from '@/helpers/getImages'
+import { getCategories } from '@/api'
+import { loadCategoriesImages } from '@/helpers/loadImages'
 import MainTitle from '@/components/MainTitle.vue'
 import PageBG from '@/components/PageBG.vue'
 
@@ -67,11 +65,11 @@ export default {
 	},
 	data() {
 		return {
-			products: null
+			categories: null
 		}
 	},
 	created() {
-		getProducts().then(data => (this.products = getProductsImages(data)))
+		getCategories().then(data => (this.categories = loadCategoriesImages(data)))
 	},
 	computed: {
 		getBGImage() {
