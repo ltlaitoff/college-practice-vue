@@ -10,6 +10,9 @@
 		>
 		<b-row class="tomato-data-row">
 			<b-col
+				lg="4"
+				md="6"
+				cols="12"
 				v-for="item in tomatoData.table"
 				:key="item.id"
 				class="tomato-data-col"

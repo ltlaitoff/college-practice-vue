@@ -21,23 +21,42 @@ import {
 
 const DATA = {
 	id: 0,
-	categoryShortName: 'test',
-	categoryFullName: 'testfull',
-	categoryMinifyName: 'testminify',
-	categoryImage: 'testimg',
-	disabled: false,
+	name: {
+		short: 'category1 short',
+		full: 'category1 full',
+		minify: 'category1minify'
+	},
+	image: 'image.jpg',
+	icon: 'icon.svg',
+	bg: 'bg.jpg',
+	productBG: 'product-bg.svg',
+	attentionIcon: 'attention-icon.svg',
 	products: [
 		{
 			id: 0,
-			name: 'product1',
-			type: 'product type 1',
-			image: 'product1'
+			name: 'Test1 Product1',
+			type: 'Test1ProductType1',
+			image: 'test-img',
+			attentionText: 'attentionText',
+			details: [
+				{
+					id: 0,
+					title: 'detail1',
+					text: 'detail1 text'
+				},
+				{
+					id: 1,
+					title: 'detail2',
+					texts: ['detail1 text1', 'detail1 text2', 'detail1 text3']
+				}
+			]
 		},
 		{
 			id: 1,
-			name: 'product2',
-			type: 'product type 2',
-			image: 'product2'
+			name: 'Test1 Product2',
+			type: 'Test1ProductType2',
+			image: 'test-img',
+			attentionText: 'attentionText'
 		}
 	]
 }
@@ -48,16 +67,16 @@ jest.mock('@/api', () => {
 	}
 })
 
-jest.mock('@/helpers/getImages', () => {
+jest.mock('../helpers/loadImages', () => {
 	return {
-		getCategoryProductsImages: value => value
+		loadPageBG: value => value,
+		loadProductsImages: (_, products) => products
 	}
 })
 
 jest.mock('../data/pagesInfo', () => {
 	return {
-		testminify: {
-			bg: 'testbg',
+		category1minify: {
 			component: jest.fn()
 		}
 	}
@@ -75,12 +94,12 @@ const routes = [
 	},
 	{
 		path: '*',
-		redirect: '/products/testminify'
+		redirect: '/products/category1minify'
 	}
 ]
 const router = new VueRouter({ routes })
 
-describe('AGDivider', () => {
+describe('CategoryPage', () => {
 	let wrapper = null
 
 	beforeEach(() => {
@@ -110,12 +129,11 @@ describe('AGDivider', () => {
 		expect(wrapper.findComponent(MainTitle).props().visibility).toBe(false)
 	})
 
-	it('PageBG should be in the component with src = "testbg" and imgAlt="productsBg"', () => {
+	it('PageBG should be in the component with src = "category1minify"', () => {
 		const page = wrapper.findComponent(PageBG)
 
 		expect(page.exists()).toBe(true)
-		expect(page.props().img).toBe('testbg')
-		expect(page.props().imgAlt).toBe('productCategoryPage')
+		expect(page.props().img).toBe('category1minify')
 	})
 
 	it('AGDivider should be in the component', () => {
@@ -147,7 +165,7 @@ describe('AGDivider', () => {
 			const id = item.attributes()['data-testid']
 
 			expect(item.findComponent(BLink).attributes().href).toBe(
-				`/products/testminify/${id}`
+				`/products/category1minify/${id}`
 			)
 		})
 	})
