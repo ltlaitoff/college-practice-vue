@@ -8,5 +8,6 @@ export default {
 	ornamentalSunflowers: {},
 	wheat: {
 		component: WheatData
-	}
+	},
+	pineapple: {}
 }
