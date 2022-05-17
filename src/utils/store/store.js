@@ -43,7 +43,7 @@ class Store {
 	}
 
 	removeProductFromCart = (categoryName, productId) => {
-		localStorageRemoveProduct(productId)
+		localStorageRemoveProduct(categoryName, productId)
 
 		if (isValueNotExists(this.store.cart, categoryName, productId)) {
 			return false
@@ -59,10 +59,20 @@ class Store {
 		return true
 	}
 
-	clearCart = () => {
+	clearCart() {
 		this.store.cart = {}
 		localStorageClearAll()
 		return true
+	}
+
+	checkProductInStore(categoryName, productId) {
+		const products = this.store.cart[categoryName]
+
+		if (!products || products.length === 0) {
+			return false
+		}
+
+		return products.includes(productId)
 	}
 }
 

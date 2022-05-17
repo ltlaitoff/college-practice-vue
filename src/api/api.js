@@ -99,6 +99,18 @@ class APIMethods {
 
 		return this.#getProductsTypesFromCategoryProducts(categoryProducts)
 	}
+
+	async getProductById(categoryMinifyName, id) {
+		const products = this.getCategoryProductsByMinifyName(categoryMinifyName)
+
+		return (await products).find(product => product.id === id)
+	}
+
+	async getProductsByIdArray(categoryMinifyName, idArray) {
+		const products = this.getCategoryProductsByMinifyName(categoryMinifyName)
+
+		return (await products).filter(product => idArray.includes(product.id))
+	}
 }
 
 export default new APIMethods(getAPIData)

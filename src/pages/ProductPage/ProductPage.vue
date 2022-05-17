@@ -33,10 +33,18 @@
 				</b-col>
 				<b-col class="image" data-testid="mainimage" lg="6" md="12">
 					<b-img :src="product.image" alt="product image" class="main-image" />
-					<button class="download" @click="downloadAlert">
-						<inline-svg :src="pdfIcon" alt="pdf arrow"></inline-svg>
-						Download
-					</button>
+					<div class="image-wrapper">
+						<b-link to="/cart" class="image-button image-cart-link" v-if="added"
+							>Go to cart</b-link
+						>
+
+						<button
+							:class="['image-button', { 'image-button-added': added }]"
+							@click="onAddedButtonClick"
+						>
+							{{ !added ? 'Add to cart' : 'Remove from cart' }}
+						</button>
+					</div>
 				</b-col>
 			</b-row>
 
@@ -82,17 +90,17 @@
 import VueMarkdown from 'vue-markdown'
 import InlineSvg from 'vue-inline-svg'
 
-import { getCategoryByMinifyName } from '@/api'
+import API from '@/api'
 import AGDivider from '@/components/AGDivider'
 import MainTitle from '@/components/MainTitle'
 import getCurrentProductById from './helpers/getCurrentProductById.js'
 
 import {
 	loadLeftArrow,
-	loadPDFIcon,
 	loadProductImages,
 	loadCategoryImages
 } from './helpers/loadImages'
+import Store from '@/utils/store'
 
 export default {
 	name: 'ProductPage',
@@ -105,35 +113,46 @@ export default {
 	data() {
 		return {
 			category: null,
-			product: null
+			product: null,
+			added: false
 		}
 	},
 	created() {
 		const categoryName = this.$route.params.category
 		const productId = this.$route.params.id
 
-		getCategoryByMinifyName(categoryName).then(data => {
+		API.getCategoryByMinifyName(categoryName).then(data => {
 			this.category = loadCategoryImages(data)
 
 			this.product = loadProductImages(
 				categoryName,
 				getCurrentProductById(productId, data)
 			)
+
+			this.added = Store.checkProductInStore(
+				this.category.name.minify,
+				this.product.id
+			)
 		})
 	},
 	computed: {
 		leftArrow() {
 			return loadLeftArrow()
-		},
-		pdfIcon() {
-			return loadPDFIcon()
-		},
-		downloadAlert() {
-			return () => window.alert('В данный момент функция не доступна')
 		}
 	},
 
 	methods: {
+		onAddedButtonClick() {
+			if (this.added) {
+				Store.removeProductFromCart(this.category.name.minify, this.product.id)
+				this.added = false
+				return
+			}
+
+			Store.addProductInCart(this.category.name.minify, this.product.id)
+			this.added = true
+		},
+
 		addClassForTags(value) {
 			const replacing = {
 				'<p>': '<p class="product-data-p">',

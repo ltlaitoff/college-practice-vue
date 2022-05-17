@@ -42,7 +42,7 @@ export const removeProduct = (categoryName, productId) => {
 		return false
 	}
 
-	data = data[categoryName].filter(id => id !== productId)
+	data[categoryName] = data[categoryName].filter(id => id !== productId)
 
 	return setData(data)
 }

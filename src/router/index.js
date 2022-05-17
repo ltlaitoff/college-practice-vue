@@ -13,6 +13,8 @@ const Category = () =>
 	import(/* webpackChunkName: "category" */ '@/pages/CategoryPage')
 const Product = () =>
 	import(/* webpackChunkName: "product" */ '@/pages/ProductPage')
+const ShoppingCart = () =>
+	import(/* webpackChunkName: "shopping-card" */ '@/pages/ShoppingCartPage')
 const Contact = () =>
 	import(/* webpackChunkName: "contacnt" */ '@/pages/ContactPage')
 const NotFound = () =>
@@ -62,12 +64,18 @@ export const routes = [
 	},
 	{
 		id: 6,
+		path: '/cart',
+		name: 'Cart',
+		component: ShoppingCart
+	},
+	{
+		id: 7,
 		path: '/contact',
 		name: 'Contact',
 		component: Contact
 	},
 	{
-		id: 7,
+		id: 8,
 		path: '*',
 		name: 'Not found',
 		component: NotFound,

@@ -158,16 +158,6 @@ describe('ProductPage', () => {
 		expect(imageblock.findComponent(BImg).exists()).toBe(true)
 		expect(imageblock.findComponent(BImg).attributes().src).toBe('test-img')
 		expect(imageblock.findComponent(BImg).attributes().alt).not.toBe(undefined)
-
-		const button = imageblock.find('button')
-		expect(button.exists()).toBe(true)
-		const buttonSVG = button.findComponent(InlineSvg)
-		expect(buttonSVG.exists()).toBe(true)
-		expect(buttonSVG.attributes().src).toBe('pdf-icon')
-
-		await button.trigger('click')
-
-		expect(mockDownloadAlert).toHaveBeenCalled()
 	})
 
 	it('Two cards should be in component', () => {
