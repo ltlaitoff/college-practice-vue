@@ -63,7 +63,7 @@ const DATA = {
 
 jest.mock('@/api', () => {
 	return {
-		getCategoryByMinifyName: async () => DATA
+		getCategoryByMinifyName: () => DATA
 	}
 })
 

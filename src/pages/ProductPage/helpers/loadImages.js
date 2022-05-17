@@ -2,10 +2,6 @@ export const loadLeftArrow = () => {
 	return require('@/assets/images/icons/arrow-left.svg')
 }
 
-export const loadPDFIcon = () => {
-	return require('@/assets/images/icons/pdf.svg')
-}
-
 export const loadProductImages = (category, product) => {
 	return {
 		...product,

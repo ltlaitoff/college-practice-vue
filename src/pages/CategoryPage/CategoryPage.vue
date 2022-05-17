@@ -32,7 +32,7 @@
 import MainTitle from '@/components/MainTitle'
 import PageBG from '@/components/PageBG'
 import AGDivider from '@/components/AGDivider'
-import { getCategoryByMinifyName } from '@/api'
+import API from '@/api'
 import pagesData from './data/pagesInfo'
 import { loadPageBG, loadProductsImages } from './helpers/loadImages'
 
@@ -55,12 +55,12 @@ export default {
 		this.pagebg = loadPageBG(this.category)
 		this.pageData = pagesData[this.category]
 
-		getCategoryByMinifyName(this.category).then(value => {
-			this.categoryData = {
-				...value,
-				products: loadProductsImages(this.category, value.products)
-			}
-		})
+		const category = API.getCategoryByMinifyName(this.category)
+
+		this.categoryData = {
+			...category,
+			products: loadProductsImages(this.category, category.products)
+		}
 	},
 	computed: {
 		getData() {

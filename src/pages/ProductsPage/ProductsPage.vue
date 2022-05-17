@@ -52,7 +52,7 @@
 </template>
 
 <script>
-import { getCategories } from '@/api'
+import API from '@/api'
 import { loadCategoriesImages } from '@/helpers/loadImages'
 import MainTitle from '@/components/MainTitle.vue'
 import PageBG from '@/components/PageBG.vue'
@@ -65,11 +65,8 @@ export default {
 	},
 	data() {
 		return {
-			categories: null
+			categories: loadCategoriesImages(API.getCategories())
 		}
-	},
-	created() {
-		getCategories().then(data => (this.categories = loadCategoriesImages(data)))
 	},
 	computed: {
 		getBGImage() {

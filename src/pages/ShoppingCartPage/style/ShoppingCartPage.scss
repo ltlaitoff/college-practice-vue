@@ -1,0 +1,99 @@
+@import '~bootstrap/scss/bootstrap.scss';
+
+.group {
+	padding: 20px 0;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: column;
+	row-gap: 20px;
+
+	border-bottom: 1px solid #a8a29e;
+}
+
+.not-bottom-border {
+	border-bottom: none !important;
+}
+
+.cart {
+	margin: 20px 0;
+}
+
+.card {
+	text-align: left;
+
+	border-radius: 30px;
+
+	&-body {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		column-gap: 10px;
+	}
+
+	&-image {
+		max-width: 100px;
+		border-radius: 10px;
+	}
+
+	&-title {
+		font-weight: bold;
+	}
+
+	&-text {
+		font-weight: normal;
+	}
+
+	&-wrapper {
+		width: 100%;
+		display: flex;
+		justify-content: space-between;
+		column-gap: 20px;
+	}
+
+	&-button {
+		border-radius: 10px;
+		width: 50px;
+		height: 50px;
+		background-color: transparent;
+		border: none;
+
+		display: flex;
+		align-items: center;
+		justify-content: center;
+
+		&:hover {
+			transition: 500ms all;
+			background-color: #8b5cf6;
+
+			.card-icon {
+				color: #fff;
+				width: 30px;
+				height: 30px;
+			}
+		}
+	}
+
+	&-icon {
+		height: 35px;
+		width: 35px;
+		color: #ec4899;
+	}
+}
+
+@include media-breakpoint-only(xs) {
+	.card {
+		&-body {
+			flex-direction: column;
+		}
+
+		&-image {
+			max-width: 250px;
+		}
+	}
+}
+
+.form {
+	&-group {
+		text-align: left;
+	}
+}
