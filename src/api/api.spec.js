@@ -1,21 +1,7 @@
 import { jest } from '@jest/globals'
 import 'jsdom-global'
 
-import {
-	getCategories,
-	getCategoryById,
-	getCategoryByShortName,
-	getCategoryByFullName,
-	getCategoryByMinifyName,
-	getCategoryProductsById,
-	getCategoryProductsByShortName,
-	getCategoryProductsByFullName,
-	getCategoryProductsByMinifyName,
-	getCategoryProductsTypesById,
-	getCategoryProductsTypesByShortName,
-	getCategoryProductsTypesFullName,
-	getCategoryProductsTypesMinifyName
-} from '@/api'
+import API from '@/api'
 
 const DATA = [
 	{
@@ -150,45 +136,49 @@ const category0 = {
 
 describe('api', () => {
 	it('getCategories should return categories', async () => {
-		expect(await getCategories()).toEqual(DATA)
+		expect(await API.getCategories()).toEqual(DATA)
 	})
 
 	it('getCategoryById should return category with id = 0', async () => {
-		expect(await getCategoryById(0)).toEqual(category0)
+		expect(await API.getCategoryById(0)).toEqual(category0)
 	})
 
 	it('getCategoryByShortName should return category with short name = "category0 short"', async () => {
-		expect(await getCategoryByShortName('category1 short')).toEqual(category0)
+		expect(await API.getCategoryByShortName('category1 short')).toEqual(
+			category0
+		)
 	})
 
 	it('getCategoryByFullName should return category with short name = "category0 full"', async () => {
-		expect(await getCategoryByFullName('category1 full')).toEqual(category0)
+		expect(await API.getCategoryByFullName('category1 full')).toEqual(category0)
 	})
 
 	it('getCategoryByMinifyName should return category with short name = "category0 minify"', async () => {
-		expect(await getCategoryByMinifyName('category1 minify')).toEqual(category0)
+		expect(await API.getCategoryByMinifyName('category1 minify')).toEqual(
+			category0
+		)
 	})
 
 	it('getCategoryProductsById should return category with id = 0', async () => {
-		expect(await getCategoryProductsById(0)).toEqual(category0.products)
+		expect(await API.getCategoryProductsById(0)).toEqual(category0.products)
 	})
 
 	it('getCategoryProductsByShortName should return category with short name = "category0 short"', async () => {
-		expect(await getCategoryProductsByShortName('category1 short')).toEqual(
+		expect(await API.getCategoryProductsByShortName('category1 short')).toEqual(
 			category0.products
 		)
 	})
 
 	it('getCategoryProductsByFullName should return category with short name = "category0 full"', async () => {
-		expect(await getCategoryProductsByFullName('category1 full')).toEqual(
+		expect(await API.getCategoryProductsByFullName('category1 full')).toEqual(
 			category0.products
 		)
 	})
 
 	it('getCategoryProductsByMinifyName should return category with short name = "category0 minify"', async () => {
-		expect(await getCategoryProductsByMinifyName('category1 minify')).toEqual(
-			category0.products
-		)
+		expect(
+			await API.getCategoryProductsByMinifyName('category1 minify')
+		).toEqual(category0.products)
 	})
 
 	it.each`
@@ -200,12 +190,12 @@ describe('api', () => {
 	`(
 		'api functions with value = $value should return result = $result',
 		async ({ value, result }) => {
-			expect(await getCategoryByShortName(value)).toEqual(result)
-			expect(await getCategoryByFullName(value)).toEqual(result)
-			expect(await getCategoryByMinifyName(value)).toEqual(result)
-			expect(await getCategoryProductsByShortName(value)).toEqual(result)
-			expect(await getCategoryProductsByFullName(value)).toEqual(result)
-			expect(await getCategoryProductsByMinifyName(value)).toEqual(result)
+			expect(await API.getCategoryByShortName(value)).toEqual(result)
+			expect(await API.getCategoryByFullName(value)).toEqual(result)
+			expect(await API.getCategoryByMinifyName(value)).toEqual(result)
+			expect(await API.getCategoryProductsByShortName(value)).toEqual(result)
+			expect(await API.getCategoryProductsByFullName(value)).toEqual(result)
+			expect(await API.getCategoryProductsByMinifyName(value)).toEqual(result)
 		}
 	)
 
@@ -213,24 +203,24 @@ describe('api', () => {
 		const types = ['Test1ProductType1', 'Test1ProductType2']
 
 		it('getCategoryProductsTypesById should return categoryTypes from categoryId = 0', async () => {
-			expect(await getCategoryProductsTypesById(0)).toEqual(types)
+			expect(await API.getCategoryProductsTypesById(0)).toEqual(types)
 		})
 
 		it('getCategoryProductsTypesByShortName should return categoryTypes from categoryShortName = "category1 short"', async () => {
 			expect(
-				await getCategoryProductsTypesByShortName('category1 short')
+				await API.getCategoryProductsTypesByShortName('category1 short')
 			).toEqual(types)
 		})
 
 		it('getCategoryProductsTypesFullName should return categoryTypes from categoryFullName = "category1 full"', async () => {
-			expect(await getCategoryProductsTypesFullName('category1 full')).toEqual(
-				types
-			)
+			expect(
+				await API.getCategoryProductsTypesFullName('category1 full')
+			).toEqual(types)
 		})
 
 		it('getCategoryProductsTypesMinifyName should return categoryTypes from categoryMinifyName = "category1 minify"', async () => {
 			expect(
-				await getCategoryProductsTypesMinifyName('category1 minify')
+				await API.getCategoryProductsTypesMinifyName('category1 minify')
 			).toEqual(types)
 		})
 	})
