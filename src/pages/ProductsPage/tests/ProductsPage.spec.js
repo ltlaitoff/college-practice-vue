@@ -103,7 +103,7 @@ const DATA = [
 
 jest.mock('@/api', () => {
 	return {
-		getCategories: async () => DATA
+		getCategories: () => DATA
 	}
 })
 

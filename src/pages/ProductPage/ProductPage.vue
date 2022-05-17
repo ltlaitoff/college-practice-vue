@@ -121,19 +121,19 @@ export default {
 		const categoryName = this.$route.params.category
 		const productId = this.$route.params.id
 
-		API.getCategoryByMinifyName(categoryName).then(data => {
-			this.category = loadCategoryImages(data)
+		const data = API.getCategoryByMinifyName(categoryName)
 
-			this.product = loadProductImages(
-				categoryName,
-				getCurrentProductById(productId, data)
-			)
+		this.category = loadCategoryImages(data)
 
-			this.added = Store.checkProductInStore(
-				this.category.name.minify,
-				this.product.id
-			)
-		})
+		this.product = loadProductImages(
+			categoryName,
+			getCurrentProductById(productId, data)
+		)
+
+		this.added = Store.checkProductInStore(
+			this.category.name.minify,
+			this.product.id
+		)
 	},
 	computed: {
 		leftArrow() {

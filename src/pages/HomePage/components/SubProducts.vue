@@ -23,7 +23,7 @@
 
 <script>
 import InlineSvg from 'vue-inline-svg'
-import { getCategories } from '@/api'
+import API from '@/api'
 import { loadCategoriesImages } from '@/helpers/loadImages'
 
 export default {
@@ -37,9 +37,7 @@ export default {
 		}
 	},
 	created() {
-		getCategories().then(categories => {
-			this.categories = loadCategoriesImages(categories)
-		})
+		this.categories = loadCategoriesImages(API.getCategories())
 	}
 }
 </script>

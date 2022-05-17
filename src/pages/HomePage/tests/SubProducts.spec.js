@@ -97,7 +97,7 @@ jest.mock('@/helpers/loadImages', () => {
 
 jest.mock('@/api', () => {
 	return {
-		getCategories: async () => DATA
+		getCategories: () => DATA
 	}
 })
 

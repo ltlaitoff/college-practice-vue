@@ -18,53 +18,53 @@ class APIMethods {
 		})
 	}
 
-	async getCategories() {
-		return await this.data
+	getCategories() {
+		return this.data
 	}
 
-	async #findInCategory(field, value) {
-		const categories = await this.getCategories()
+	#findInCategory(field, value) {
+		const categories = this.getCategories()
 
 		return categories.find(category => category[field] === value)
 	}
 
-	async #findCategoryName(type, name) {
-		const categories = await this.getCategories()
+	#findCategoryName(type, name) {
+		const categories = this.getCategories()
 
 		return categories.find(category => category.name[type] === name)
 	}
 
-	async getCategoryById(id) {
-		return await this.#findInCategory('id', id)
+	getCategoryById(id) {
+		return this.#findInCategory('id', id)
 	}
 
-	async getCategoryByShortName(shortName) {
-		return await this.#findCategoryName('short', shortName)
+	getCategoryByShortName(shortName) {
+		return this.#findCategoryName('short', shortName)
 	}
 
-	async getCategoryByFullName(fullName) {
-		return await this.#findCategoryName('full', fullName)
+	getCategoryByFullName(fullName) {
+		return this.#findCategoryName('full', fullName)
 	}
 
-	async getCategoryByMinifyName(minifyName) {
-		return await this.#findCategoryName('minify', minifyName)
+	getCategoryByMinifyName(minifyName) {
+		return this.#findCategoryName('minify', minifyName)
 	}
 
 	/* products */
-	async getCategoryProductsById(id) {
-		return (await this.getCategoryById(id))?.products
+	getCategoryProductsById(id) {
+		return this.getCategoryById(id)?.products
 	}
 
-	async getCategoryProductsByShortName(shortName) {
-		return (await this.getCategoryByShortName(shortName))?.products
+	getCategoryProductsByShortName(shortName) {
+		return this.getCategoryByShortName(shortName)?.products
 	}
 
-	async getCategoryProductsByFullName(fullName) {
-		return (await this.getCategoryByFullName(fullName))?.products
+	getCategoryProductsByFullName(fullName) {
+		return this.getCategoryByFullName(fullName)?.products
 	}
 
-	async getCategoryProductsByMinifyName(minifyName) {
-		return (await this.getCategoryByMinifyName(minifyName))?.products
+	getCategoryProductsByMinifyName(minifyName) {
+		return this.getCategoryByMinifyName(minifyName)?.products
 	}
 
 	/* types */
@@ -72,44 +72,40 @@ class APIMethods {
 		return Array.from(new Set(products.map(item => item.type)))
 	}
 
-	async getCategoryProductsTypesById(id) {
-		const categoryProducts = await this.getCategoryProductsById(id)
+	getCategoryProductsTypesById(id) {
+		const categoryProducts = this.getCategoryProductsById(id)
 
 		return this.#getProductsTypesFromCategoryProducts(categoryProducts)
 	}
 
-	async getCategoryProductsTypesByShortName(shortName) {
-		const categoryProducts = await this.getCategoryProductsByShortName(
-			shortName
-		)
+	getCategoryProductsTypesByShortName(shortName) {
+		const categoryProducts = this.getCategoryProductsByShortName(shortName)
 
 		return this.#getProductsTypesFromCategoryProducts(categoryProducts)
 	}
 
-	async getCategoryProductsTypesFullName(fullName) {
-		const categoryProducts = await this.getCategoryProductsByFullName(fullName)
+	getCategoryProductsTypesFullName(fullName) {
+		const categoryProducts = this.getCategoryProductsByFullName(fullName)
 
 		return this.#getProductsTypesFromCategoryProducts(categoryProducts)
 	}
 
-	async getCategoryProductsTypesMinifyName(minifyName) {
-		const categoryProducts = await this.getCategoryProductsByMinifyName(
-			minifyName
-		)
+	getCategoryProductsTypesMinifyName(minifyName) {
+		const categoryProducts = this.getCategoryProductsByMinifyName(minifyName)
 
 		return this.#getProductsTypesFromCategoryProducts(categoryProducts)
 	}
 
-	async getProductById(categoryMinifyName, id) {
+	getProductById(categoryMinifyName, id) {
 		const products = this.getCategoryProductsByMinifyName(categoryMinifyName)
 
-		return (await products).find(product => product.id === id)
+		return products.find(product => product.id === id)
 	}
 
-	async getProductsByIdArray(categoryMinifyName, idArray) {
+	getProductsByIdArray(categoryMinifyName, idArray) {
 		const products = this.getCategoryProductsByMinifyName(categoryMinifyName)
 
-		return (await products).filter(product => idArray.includes(product.id))
+		return products.filter(product => idArray.includes(product.id))
 	}
 }
 

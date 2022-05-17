@@ -8,7 +8,6 @@ import {
 	clearAll as localStorageClearAll,
 	getArrayAsData as localStorageGetArrayAsData
 } from '../localstorage'
-import API from '@/api'
 
 class Store {
 	constructor(cartDefaultFunction) {
@@ -54,8 +53,9 @@ class Store {
 		}
 
 		this.store.cart[categoryName] = this.store.cart[categoryName].filter(
-			item => item.id !== productId
+			item => item !== productId
 		)
+
 		return true
 	}
 
@@ -76,24 +76,4 @@ class Store {
 	}
 }
 
-class Bridge extends Store {
-	constructor(cartDefaultFunction) {
-		super(cartDefaultFunction)
-	}
-	async getProducts() {
-		const cart = JSON.parse(JSON.stringify(this.store.cart))
-		const keys = Object.keys(this.store.cart)
-
-		if (keys.length === 0) {
-			return {}
-		}
-
-		keys.forEach(async key => {
-			cart[key] = await API.getProductsByIdArray(key, cart[key])
-		})
-
-		return cart
-	}
-}
-
-export default new Bridge(localStoragegetData)
+export default new Store(localStoragegetData)

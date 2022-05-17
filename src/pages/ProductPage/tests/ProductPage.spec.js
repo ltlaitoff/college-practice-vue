@@ -65,7 +65,7 @@ jest.mock('../helpers/loadImages', () => {
 
 jest.mock('@/api', () => {
 	return {
-		getCategoryByMinifyName: async () => DATA
+		getCategoryByMinifyName: () => DATA
 	}
 })
 
