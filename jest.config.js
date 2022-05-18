@@ -8,5 +8,14 @@ module.exports = {
 	moduleNameMapper: {
 		'^@/(.*)$': '<rootDir>/src/$1'
 	},
-	injectGlobals: true
+	injectGlobals: true,
+	reporters: [
+		'default',
+		[
+			'./node_modules/jest-html-reporter',
+			{
+				pageTitle: 'Test Report'
+			}
+		]
+	]
 }

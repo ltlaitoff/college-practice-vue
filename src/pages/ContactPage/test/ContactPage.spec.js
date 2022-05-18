@@ -5,6 +5,7 @@ import ContactPage from '../ContactPage'
 import MainTitle from '@/components/MainTitle'
 import PageBG from '@/components/PageBG'
 import AGDivider from '@/components/AGDivider'
+import TestsConsoleLog from '@/testHelpers/colors'
 
 import {
 	BButton,
@@ -63,6 +64,6 @@ describe('ContactPage', () => {
 		expect(wrapper.findComponent(AGDivider).exists()).toBe(true)
 	})
 
-	//FIXME: Write test on ContactPage
+	TestsConsoleLog.fixme('Write tests for ContactPage')
 	/* To be continue */
 })

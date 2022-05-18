@@ -25,3 +25,6 @@ pnpm-debug.log*
 notions.md
 todo.*
 TODO.*
+
+coverage
+test-report.html

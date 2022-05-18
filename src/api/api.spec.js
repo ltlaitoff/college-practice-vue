@@ -2,6 +2,7 @@ import { jest } from '@jest/globals'
 import 'jsdom-global'
 
 import API from '@/api'
+import TestsConsoleLog from '@/testHelpers/colors'
 
 const DATA = [
 	{
@@ -133,6 +134,9 @@ const category0 = {
 		}
 	]
 }
+
+TestsConsoleLog.fixme('Create tests for getProductById')
+TestsConsoleLog.fixme('Create tests for getProductsByIdArray')
 
 describe('api', () => {
 	it('getCategories should return categories', () => {
