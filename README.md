@@ -1,6 +1,9 @@
 # College practive vue
+
 [![pages-build-deployment](https://github.com/ltlaitoff/college-practice-vue/actions/workflows/pages/pages-build-deployment/badge.svg)](https://github.com/ltlaitoff/college-practice-vue/actions/workflows/pages/pages-build-deployment)
 [![Project test, build and deploy](https://github.com/ltlaitoff/college-practice-vue/actions/workflows/testing-and-deploy.yml/badge.svg)](https://github.com/ltlaitoff/college-practice-vue/actions/workflows/testing-and-deploy.yml)
+
+WebSite logo from https://www.flaticon.com/ru/free-icon/panda_185816#
 
 ## Project setup
 
