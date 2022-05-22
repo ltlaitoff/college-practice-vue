@@ -107,6 +107,9 @@ class APIMethods {
 	getProductsByIdArray(categoryMinifyName, idArray) {
 		const products = this.getCategoryProductsByMinifyName(categoryMinifyName)
 
+		if (!products) return []
+		if (!(idArray instanceof Array)) return []
+
 		return products.filter(product => idArray.includes(product.id))
 	}
 }
