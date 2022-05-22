@@ -2,7 +2,7 @@
 	<header class="header">
 		<b-container class="hcontainer">
 			<b-navbar toggleable="lg" type="light" class="navbar">
-				<b-navbar-brand href="/"
+				<b-navbar-brand to="/"
 					><b-img
 						src="@/assets/images/logo.png"
 						alt="logo"
