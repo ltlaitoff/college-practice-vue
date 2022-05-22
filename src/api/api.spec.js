@@ -2,7 +2,6 @@ import { jest } from '@jest/globals'
 import 'jsdom-global'
 
 import API from '@/api'
-import TestsConsoleLog from '@/testHelpers/colors'
 
 const DATA = [
 	{
@@ -134,8 +133,6 @@ const category0 = {
 		}
 	]
 }
-
-TestsConsoleLog.fixme('Create tests for getProductsByIdArray')
 
 describe('api', () => {
 	it('getCategories should return categories', () => {
@@ -296,6 +293,88 @@ describe('api', () => {
 			'getProductById with categoryMinifyName = $categoryMinifyName, id = $id should return correct product',
 			({ categoryMinifyName, id, result }) => {
 				expect(API.getProductById(categoryMinifyName, id)).toEqual(result)
+			}
+		)
+	})
+
+	describe('getProductsByIdArray', () => {
+		const products = {
+			category1minify: [
+				{
+					id: 0,
+					name: 'Test1 Product1',
+					type: 'Test1ProductType1',
+					image: 'test-img',
+					attentionText: 'attentionText',
+					details: [
+						{
+							id: 0,
+							title: 'detail1',
+							text: 'detail1 text'
+						},
+						{
+							id: 1,
+							title: 'detail2',
+							texts: ['detail1 text1', 'detail1 text2', 'detail1 text3']
+						}
+					]
+				},
+				{
+					id: 1,
+					name: 'Test1 Product2',
+					type: 'Test1ProductType2',
+					image: 'test-img',
+					attentionText: 'attentionText'
+				}
+			],
+			category2minify: [
+				{
+					id: 0,
+					name: 'Test2 Product1',
+					type: 'Test2ProductType',
+					attentionText: 'attentionText',
+					image: 'test-img',
+					details: [
+						{
+							id: 0,
+							title: 'detail1',
+							text: 'detail1 text'
+						},
+						{
+							id: 1,
+							title: 'detail2',
+							texts: ['detail1 text1', 'detail1 text2', 'detail1 text3']
+						}
+					]
+				},
+				{
+					id: 1,
+					name: 'Test2 Product2',
+					type: 'Test2ProductType',
+					image: 'test-img'
+				}
+			]
+		}
+
+		it.each`
+			categoryMinifyName   | idArray   | result
+			${'category1minify'} | ${[0]}    | ${[products.category1minify[0]]}
+			${'category1minify'} | ${[1]}    | ${[products.category1minify[1]]}
+			${'category1minify'} | ${[0, 1]} | ${[products.category1minify[0], products.category1minify[1]]}
+			${'category2minify'} | ${[0]}    | ${[products.category2minify[0]]}
+			${'category2minify'} | ${[1]}    | ${[products.category2minify[1]]}
+			${'category2minify'} | ${[0, 1]} | ${[products.category2minify[0], products.category2minify[1]]}
+			${'null'}            | ${[1]}    | ${[]}
+			${null}              | ${[1]}    | ${[]}
+			${'category1minify'} | ${[-1]}   | ${[]}
+			${'category1minify'} | ${null}   | ${[]}
+			${null}              | ${1}      | ${[]}
+		`(
+			'getProductsByIdArray with categoryMinifyName = $categoryMinifyName, idArray = $idArray should return correct products Array',
+			({ categoryMinifyName, idArray, result }) => {
+				expect(API.getProductsByIdArray(categoryMinifyName, idArray)).toEqual(
+					result
+				)
 			}
 		)
 	})
