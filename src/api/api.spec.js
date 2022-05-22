@@ -10,7 +10,7 @@ const DATA = [
 		name: {
 			short: 'category1 short',
 			full: 'category1 full',
-			minify: 'category1 minify'
+			minify: 'category1minify'
 		},
 		image: 'image.jpg',
 		icon: 'icon.svg',
@@ -51,7 +51,7 @@ const DATA = [
 		name: {
 			short: 'category2 short',
 			full: 'category2 full',
-			minify: 'category2 minify'
+			minify: 'category2minify'
 		},
 		image: 'image.jpg',
 		bg: 'bg.jpg',
@@ -98,7 +98,7 @@ const category0 = {
 	name: {
 		short: 'category1 short',
 		full: 'category1 full',
-		minify: 'category1 minify'
+		minify: 'category1minify'
 	},
 	image: 'image.jpg',
 	icon: 'icon.svg',
@@ -135,7 +135,6 @@ const category0 = {
 	]
 }
 
-TestsConsoleLog.fixme('Create tests for getProductById')
 TestsConsoleLog.fixme('Create tests for getProductsByIdArray')
 
 describe('api', () => {
@@ -156,27 +155,27 @@ describe('api', () => {
 	})
 
 	it('getCategoryByMinifyName should return category with short name = "category0 minify"', () => {
-		expect(API.getCategoryByMinifyName('category1 minify')).toEqual(category0)
+		expect(API.getCategoryByMinifyName('category1minify')).toEqual(category0)
 	})
 
 	it('getCategoryProductsById should return category with id = 0', () => {
 		expect(API.getCategoryProductsById(0)).toEqual(category0.products)
 	})
 
-	it('getCategoryProductsByShortName should return category with short name = "category0 short"', () => {
+	it('getCategoryProductsByShortName should return category with short name = "category1 short"', () => {
 		expect(API.getCategoryProductsByShortName('category1 short')).toEqual(
 			category0.products
 		)
 	})
 
-	it('getCategoryProductsByFullName should return category with short name = "category0 full"', () => {
+	it('getCategoryProductsByFullName should return category with short name = "category1 full"', () => {
 		expect(API.getCategoryProductsByFullName('category1 full')).toEqual(
 			category0.products
 		)
 	})
 
-	it('getCategoryProductsByMinifyName should return category with short name = "category0 minify"', () => {
-		expect(API.getCategoryProductsByMinifyName('category1 minify')).toEqual(
+	it('getCategoryProductsByMinifyName should return category with short name = "category1minify"', () => {
+		expect(API.getCategoryProductsByMinifyName('category1minify')).toEqual(
 			category0.products
 		)
 	})
@@ -218,10 +217,86 @@ describe('api', () => {
 			)
 		})
 
-		it('getCategoryProductsTypesMinifyName should return categoryTypes from categoryMinifyName = "category1 minify"', () => {
-			expect(
-				API.getCategoryProductsTypesMinifyName('category1 minify')
-			).toEqual(types)
+		it('getCategoryProductsTypesMinifyName should return categoryTypes from categoryMinifyName = "category1minify"', () => {
+			expect(API.getCategoryProductsTypesMinifyName('category1minify')).toEqual(
+				types
+			)
 		})
+	})
+
+	describe('getProductById', () => {
+		const products = {
+			category1minify: [
+				{
+					id: 0,
+					name: 'Test1 Product1',
+					type: 'Test1ProductType1',
+					image: 'test-img',
+					attentionText: 'attentionText',
+					details: [
+						{
+							id: 0,
+							title: 'detail1',
+							text: 'detail1 text'
+						},
+						{
+							id: 1,
+							title: 'detail2',
+							texts: ['detail1 text1', 'detail1 text2', 'detail1 text3']
+						}
+					]
+				},
+				{
+					id: 1,
+					name: 'Test1 Product2',
+					type: 'Test1ProductType2',
+					image: 'test-img',
+					attentionText: 'attentionText'
+				}
+			],
+			category2minify: [
+				{
+					id: 0,
+					name: 'Test2 Product1',
+					type: 'Test2ProductType',
+					attentionText: 'attentionText',
+					image: 'test-img',
+					details: [
+						{
+							id: 0,
+							title: 'detail1',
+							text: 'detail1 text'
+						},
+						{
+							id: 1,
+							title: 'detail2',
+							texts: ['detail1 text1', 'detail1 text2', 'detail1 text3']
+						}
+					]
+				},
+				{
+					id: 1,
+					name: 'Test2 Product2',
+					type: 'Test2ProductType',
+					image: 'test-img'
+				}
+			]
+		}
+
+		it.each`
+			categoryMinifyName   | id    | result
+			${'category1minify'} | ${0}  | ${products.category1minify[0]}
+			${'category1minify'} | ${1}  | ${products.category1minify[1]}
+			${'category2minify'} | ${0}  | ${products.category2minify[0]}
+			${'category2minify'} | ${1}  | ${products.category2minify[1]}
+			${'null'}            | ${1}  | ${undefined}
+			${null}              | ${1}  | ${undefined}
+			${'category1minify'} | ${-1} | ${undefined}
+		`(
+			'getProductById with categoryMinifyName = $categoryMinifyName, id = $id should return correct product',
+			({ categoryMinifyName, id, result }) => {
+				expect(API.getProductById(categoryMinifyName, id)).toEqual(result)
+			}
+		)
 	})
 })
