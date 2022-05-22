@@ -99,6 +99,8 @@ class APIMethods {
 	getProductById(categoryMinifyName, id) {
 		const products = this.getCategoryProductsByMinifyName(categoryMinifyName)
 
+		if (!products) return
+
 		return products.find(product => product.id === id)
 	}
 
