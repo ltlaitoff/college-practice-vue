@@ -3,16 +3,90 @@
 		<AGHeader />
 		<router-view />
 		<AGFooter />
+		<PushNotificationsSubscribe
+			v-if="showPushNotificationsSubscribe"
+			@yes="subscribeToNotifications"
+			@no="subscribeToNotifications"
+		/>
 	</div>
 </template>
 
 <script>
 import AGHeader from '@/components/AGHeader'
 import AGFooter from '@/components/AGFooter'
+import PushNotificationsSubscribe from '@/components/PushNotificationsSubscribe'
+
 export default {
 	components: {
 		AGHeader,
-		AGFooter
+		AGFooter,
+		PushNotificationsSubscribe
+	},
+	data() {
+		return {
+			showPushNotificationsSubscribe: true
+		}
+	},
+
+	mounted() {
+		this.showPushNotificationsSubscribe = Notification.permission === 'default'
+
+		self.addEventListener('push', this.notificationRegistration)
+		if (this.showPushNotificationsSubscribe === false) {
+			this.testNotification()
+		}
+	},
+
+	beforeUnmounted() {
+		self.removeEventListener('push', this.notificationRegistration)
+	},
+
+	methods: {
+		testNotification() {
+			return setTimeout(() => {
+				new Notification('Test notification', { body: 'test' })
+			}, 3000)
+		},
+
+		notificationRegistration(e) {
+			const notification = e.data.text()
+			self.registration.showNotification(notification, {})
+		},
+
+		subscribeToNotifications() {
+			if (navigator.serviceWorker) {
+				navigator.serviceWorker.ready.then(() => {
+					if ('PushManager' in window) {
+						this.askPermission()
+					}
+				})
+			}
+		},
+
+		notSubscribeToNotifications() {
+			this.askPermission()
+		},
+
+		askPermission() {
+			return new Promise((resolve, reject) => {
+				const permissionResult = Notification.requestPermission(result => {
+					resolve(result)
+				})
+
+				if (permissionResult) {
+					permissionResult.then(resolve, reject)
+				}
+			}).then(permissionResult => {
+				this.showPushNotificationsSubscribe = false
+
+				if (permissionResult !== 'granted') {
+					/* eslint-disable-next-line */
+					throw new Error("We weren't granted permission.")
+				}
+
+				this.testNotification()
+			})
+		}
 	}
 }
 </script>
